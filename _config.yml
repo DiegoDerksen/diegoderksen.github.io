@@ -24,6 +24,7 @@ search: true
 
 # Build settings
 markdown: kramdown
+repository: diegoderksen/diegoderksen.github.io
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
 permalink: /:categories/:title/
@@ -75,7 +76,7 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/DiegoDerksen"
-      
+
 defaults:
   # _posts
   - scope:
@@ -102,3 +103,10 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+comments:
+  provider: "utterances"
+  utterances:
+    theme: "github-light" # "github-dark"
+    issue_term: "pathname"
+    label: "comment" # Optional - must be existing label.
