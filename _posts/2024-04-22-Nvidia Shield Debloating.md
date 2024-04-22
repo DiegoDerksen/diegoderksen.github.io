@@ -6,7 +6,6 @@ categories:
 tags:
   - Home Server
 ---
-# Debloating Nvidia Shield TV
 
 Speeding up your Nvidia Shield TV and installing a custom launcher to hide ads.
 
