@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Diego Derksen's blog for Microsoft Defender, Microsoft Intune, Power Automate/Logic Apps
   and some hobby projects.
 github_username: diegoderksen
-minimal_mistakes_skin: air
+minimal_mistakes_skin: default
 search: true
 
 # Build settings
@@ -75,7 +75,7 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/DiegoDerksen"
-
+      
 defaults:
   # _posts
   - scope:
@@ -102,11 +102,3 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-
-JEKYLL_ENV=production
-
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "G-7JZEKGXL09"
-    anonymize_ip: false # default
