@@ -48,10 +48,10 @@ Graph API > SecurityAlert.Read.All (Application)
     | Initialize Secret |  Secret | String | {Paste your Secret} |
 
     Your flow should look something like this:
-    ![image](https://github.com/DiegoDerksen/Intune_Toolbox/assets/144729242/8e149a32-bfe6-4599-93ae-dc8a17361140)
+    ![Initialize](/assets/images/PA-MDE-alerts-to-Excel/Initialize%20flow.png)
 
 1. Make a new step with a HTTP connector with the following settings:
-Method: Get
+    Method: Get
     URI: ``` `https://graph.microsoft.com/v1.0/security/alerts_v2?$filter=servicesource+eq+'microsoftDefenderForEndpoint'+and+createdDateTime+ge+@{formatDateTime(subtractFromTime(utcNow(), 7, 'Day'), 'yyyy-MM-ddTHH:mm:ssZ')}` ```
     this URI will get all alerts from Microsoft Defender for Endpoint in the last 7 days
 
@@ -60,8 +60,9 @@ Method: Get
     Put in the variables from step 2 inside Tenant, Audience, Client ID and Secret
 
     The step should look like this:
+    
+    ![HTTP Connector](/assets/images/PA-MDE-alerts-to-Excel/HTTP%20Connector.png)
 
-   ![firefox_M2nd8aIXBx](https://github.com/DiegoDerksen/Intune_Toolbox/assets/144729242/170d4be2-5598-4c0a-b1a7-f1b4dfb2ed88)
 
 1. Make a new step with a Parse JSON variable
 Content should be: Body
@@ -410,7 +411,7 @@ Row:
 `
 
 It should look like this: 
-![firefox_V1U6G5ZOMi](https://github.com/DiegoDerksen/Intune_Toolbox/assets/144729242/2f7436cf-257d-4a67-bd0c-e635b0178c34)
+![Apply to Each](/assets/images/PA-MDE-alerts-to-Excel/Apply%20to%20Each.png)
 
 
 # End result screenshot
@@ -418,4 +419,4 @@ It should look like this:
 **Info Notice:** There is a "clean excel file" step. However this isn't needed if expression is set at Null
 {: .notice--info}
 
-![firefox_2ZQqKLk6Dv](https://github.com/DiegoDerksen/Intune_Toolbox/assets/144729242/a5257d80-94c6-4b5c-bff3-5781cf59d575)
+![Result](/assets/images/PA-MDE-alerts-to-Excel/Result%20Flow.png)
