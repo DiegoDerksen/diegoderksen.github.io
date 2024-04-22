@@ -103,6 +103,8 @@ tag_archive:
   type: liquid
   path: /tags/
 
+JEKYLL_ENV=production
+
 analytics:
   provider: "google-gtag"
   google:
