@@ -6,7 +6,6 @@ categories:
 tags:
   - Power Automate
   - Microsoft Defender for Endpoint
-  - MDE 
   - Reporting
 ---
 
