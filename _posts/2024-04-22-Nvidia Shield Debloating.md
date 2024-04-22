@@ -1,132 +1,124 @@
 ---
-title: "Post: Microsoft Defender for Endpoints reports to Excel"
-last_modified_at: 2024-04-22T21:30:00+02:00
+title: "Post: Debloating Nvidia Shield"
+last_modified_at: 2024-04-22T21:00:00+02:00
 categories:
   - Blog
 tags:
-  - Power Automate
-  - Microsoft Defender for Endpoint
-  - Reporting
+  - Home Server
 ---
+# Debloating Nvidia Shield TV
 
-I'll be showing you how to make reporting from Microsoft Defender for Endpoint alerts to an Excel sheet through Power Automate and/or Logic App. This will create insight for whatever happens in your environment
+Speeding up your Nvidia Shield TV and installing a custom launcher to hide ads.
 
-# Prerequisites:
-Power Automate Premium (for HTTP connector)
+# Prerequisites
+* PC (I'll be using MacOS)
+* Nvidia Shield TV
+* [ADB](https://www.xda-developers.com/install-adb-windows-macos-linux/#how-to-set-up-adb-on-your-computer)
 
-App registration in Azure with the following permission:
-Graph API > SecurityAlert.Read.All (Application)
+## Install ADB on MacOS:
+* Open Terminal and install Homebrew
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+* Install ADB
+```
+brew install android-platform-tools
+```
+## Install ADB on Windows
+* Download [Android SDK Platform Tools ZIP file for Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
+* Extract the contents of this ZIP file into an easily accessible folder (such as C:\platform-tools)
+  
+# Steps
+## 1. Enable ADB on the Shield
+### 1a. Enable developer options
+* Press Menu on the Android homescreen
+* Go to "Device Preferences"
+* Locate "About"
+* Click 8 times on "Build"
+* You should be seeing "You are now a developer"
 
-# Make a App Registration in Azure
-1. Go to Azure.com
-2. Click on Azure Active Directory
-3. Click on App Registration
-4. Click on New Registration
-5. Create a new name and click on Register
-6. After the app has been created go to API Permissions
-7. Click on Add a Permission
-8. Select Microsoft Graph and select Application Permissions
-9. Look up the following permission SecurityAlert.Read.All and add this to the application followed up by granting admin consent
+### 1b. Enable ADB over Wifi
+* Press Menu on the Android homescreen
+* Go to "Device Preferences"
+* Go to to "Developer options"
+* Inside developer options, turn on "Network debugging"
+* Note the IP address of the Shield to access it through ADB
 
-## Create a client secret
-1. Go to your newly created app
-2. Certificates & Secrets
-3. Click on New Client Secret
-4. Set a description and expiry to your liking
-5. Copy the value of the secret, you **won't** be able to see this after you close this window
+### 1c. Connect to shield through ADB
+After installing ADB on your PC/Mac (If you're on Windows go to the extracted ADB folder open up a Command Prompt/Terminal instance from the same directory as this ADB executable. This can be done by holding Shift and right-clicking within the folder and then clicking Open command window here or Open PowerShell window here)
+* Use the terminal/cmd to type the following command
+```
+adb connect (IP-of-your-Shield)
+```
+* You'll see a new pop-up on the Shield to allow ADB/Network Debugging. Click on "OK"
+  
+To confirm that you're connected to the Shield, use the following command
+```
+adb devices
+```
 
-# Make the flow:
-1. I've made a recurrent flow so it runs every Monday at 10 AM.
-1. We need to initialize 4 variables so it can use the app registration in Azure
-   
-    | Name Variable | Name  | Type  | Value  |
-    | ------------ | ------------ | ------------ | ------------ |
-    | Initialize TenantID | TenantID | String | {Paste your Tenant ID} |
-    | Initialize ClientID | ClientID | String | {Paste your Client ID} |
-    | Initialize Audience | Audience | String | https://graph.microsoft.com |
-    | Initialize Secret |  Secret | String | {Paste your Secret} |
+## 2. Installing a custom launcher
+* Go to the Google Play Store on the Shield
+* Search ["Projectivy Launcher"](https://play.google.com/store/apps/details?id=com.spocky.projengmenu)
+* Click on Install and open the launcher
+* Allow all permissions when it asks and allow in accessibility settings
+* We are going to disable the default launcher in step 3.
 
-    Your flow should look something like this:
-    ![Initialize](/assets/images/PA-MDE-alerts-to-Excel/Initialize%20flow.png)
+## 3. Debloating
+Now comes the fun part. Removing all the useless and unwanted apps pushed by Nvidia and Google.
+Inside the Terminal/CMD while being connected to your shield with ADB copy and paste the following code blocks
 
-1. Make a new step with a HTTP connector with the following settings:
-    Method: Get
-    URI: ``` `https://graph.microsoft.com/v1.0/security/alerts_v2?$filter=servicesource+eq+'microsoftDefenderForEndpoint'+and+createdDateTime+ge+@{formatDateTime(subtractFromTime(utcNow(), 7, 'Day'), 'yyyy-MM-ddTHH:mm:ssZ')}` ```
-    this URI will get all alerts from Microsoft Defender for Endpoint in the last 7 days
+**Remove Nvidia bloat**
+```
+adb shell pm uninstall -k --user 0 com.nvidia.ota & adb shell pm uninstall -k --user 0 com.nvidia.ocs & adb shell pm uninstall -k --user 0 com.nvidia.diagtools & adb shell pm uninstall -k --user 0 com.nvidia.shieldtech.hooks & adb shell pm uninstall -k --user 0 com.nvidia.feedback & adb shell pm uninstall -k --user 0 com.nvidia.shield.registration & adb shell pm uninstall -k --user 0 com.nvidia.SHIELD.Platform.Analyser & adb shell pm uninstall -k --user 0 com.nvidia.shield.remote.server & adb shell pm uninstall -k --user 0 com.nvidia.shieldtech.proxy & adb shell pm uninstall -k --user 0 com.nvidia.factorybundling & adb shell pm uninstall -k --user 0 com.nvidia.shieldbeta & adb shell pm uninstall -k --user 0 com.nvidia.shield.registration & adb shell pm uninstall -k --user 0 com.nvidia.shield.nvcustomize & adb shell pm uninstall -k --user 0 com.nvidia.NvCPLUpdater & adb shell pm uninstall -k --user 0 com.nvidia.benchmarkblocker & adb shell pm uninstall -k --user 0 android.autoinstalls.config.nvidia & adb shell pm uninstall -k --user 0 com.nvidia.hotwordsetup & adb shell pm uninstall -k --user 0 com.nvidia.enhancedlogging & adb shell pm uninstall -k --user 0 com.nvidia.shield.ask & adb shell pm uninstall -k --user 0 com.nvidia.stats & adb shell pm uninstall -k --user 0 com.nvidia.shield.appselector & adb shell pm uninstall -k --user 0 com.nvidia.beyonder.server & adb shell pm uninstall -k --user 0 com.nvidia.developerwidget & adb shell pm uninstall -k --user 0 com.nvidia.NvAccSt & adb shell pm uninstall -k --user 0 com.nvidia.shield.remotediagnostic
+```
+**Remove Google bloat** 
+```
+adb shell pm uninstall -k --user 0 com.google.android.speech.pumpkin & adb shell pm uninstall -k --user 0 com.google.android.tts & adb shell pm uninstall -k --user 0 com.google.android.videos & adb shell pm uninstall -k --user 0 com.google.android.tvrecommendations & adb shell pm uninstall -k --user 0 com.google.android.syncadapters.calendar & adb shell pm uninstall -k --user 0 com.google.android.backuptransport & adb shell pm uninstall -k --user 0 com.google.android.partnersetup & adb shell pm uninstall -k --user 0 com.google.android.inputmethod.korean & adb shell pm uninstall -k --user 0 com.google.android.inputmethod.pinyin & adb shell pm uninstall -k --user 0 com.google.android.apps.inputmethod.zhuyin & adb shell pm uninstall -k --user 0 com.google.android.tv & adb shell pm uninstall -k --user 0 com.google.android.tv.frameworkpackagestubs & adb shell pm uninstall -k --user 0 com.google.android.tv.bugreportsender & adb shell pm uninstall -k --user 0 com.google.android.backdrop & adb shell pm uninstall -k --user 0 com.google.android.leanbacklauncher.recommendations & adb shell pm uninstall -k --user 0 com.google.android.feedback
+```
+**Notice:** Only disable the following if another launcher is installed .
+{: .notice--danger}
 
-    Authentication: Active Directory OAuth
+```
+adb shell pm disable -k --user 0 com.google.android.tvlauncher
+adb shell pm disable -k --user 0 com.google.android.leanbacklauncher
+```
+**Remove Android bloat**
+```
+adb shell pm uninstall -k --user 0 com.android.gallery3d & adb shell pm uninstall -k --user 0 com.android.dreams.basic & adb shell pm uninstall -k --user 0 com.android.printspooler & adb shell pm uninstall -k --user 0 com.android.feedback & adb shell pm uninstall -k --user 0 com.android.keychain & adb shell pm uninstall -k --user 0 com.android.cts.priv.ctsshim & adb shell pm uninstall -k --user 0 com.android.cts.ctsshim & adb shell pm uninstall -k --user 0 com.android.providers.calendar & adb shell pm uninstall -k --user 0 com.android.providers.contacts & adb shell pm uninstall -k --user 0 com.android.se
+```
+## 3b. Removing more bloat
+If you're like me and use Jellyfin and don't use the device to play games, you can also remove the following packages
 
-    Put in the variables from step 2 inside Tenant, Audience, Client ID and Secret
-
-    The step should look like this:
-    
-    ![HTTP Connector](/assets/images/PA-MDE-alerts-to-Excel/HTTP%20Connector.png)
-
-
-1. Make a new step with a Parse JSON variable
-    Content should be:
-
-    <details>
-
-    <summary>Body Schema</summary>
-
-    `{ "type": "object", "properties": { "statusCode": { "type": "integer" }, "headers": { "type": "object", "properties": { "Transfer-Encoding": { "type": "string" }, "Vary": { "type": "string" }, "Strict-Transport-Security": { "type": "string" }, "request-id": { "type": "string" }, "client-request-id": { "type": "string" }, "x-ms-ags-diagnostic": { "type": "string" }, "OData-Version": { "type": "string" }, "Date": { "type": "string" }, "Content-Type": { "type": "string" }, "Content-Length": { "type": "string" } } }, "body": { "type": "object", "properties": { "@@odata.context": { "type": "string" }, "value": { "type": "array", "items": { "type": "object", "properties": { "id": { "type": "string" }, "providerAlertId": { "type": "string" }, "incidentId": { "type": "string" }, "status": { "type": "string" }, "severity": { "type": "string" }, "classification": {}, "determination": {}, "serviceSource": { "type": "string" }, "detectionSource": { "type": "string" }, "productName": { "type": "string" }, "detectorId": { "type": "string" }, "tenantId": { "type": "string" }, "title": { "type": "string" }, "description": { "type": "string" }, "recommendedActions": { "type": "string" }, "category": { "type": "string" }, "assignedTo": { "type": "string" }, "alertWebUrl": { "type": "string" }, "incidentWebUrl": { "type": "string" }, "actorDisplayName": {}, "threatDisplayName": { "type": "string" }, "threatFamilyName": { "type": "string" }, "mitreTechniques": { "type": "array" }, "createdDateTime": { "type": "string" }, "lastUpdateDateTime": { "type": "string" }, "resolvedDateTime": { "type": "string" }, "firstActivityDateTime": { "type": "string" }, "lastActivityDateTime": { "type": "string" }, "systemTags": { "type": "array" }, "alertPolicyId": {}, "additionalData": {}, "comments": { "type": "array" }, "evidence": { "type": "array", "items": { "type": "object", "properties": { "@@odata.type": { "type": "string" }, "createdDateTime": { "type": "string" }, "verdict": { "type": "string" }, "remediationStatus": { "type": "string" }, "remediationStatusDetails": {}, "roles": { "type": "array" }, "detailedRoles": { "type": "array", "items": { "type": "string" } }, "tags": { "type": "array" }, "firstSeenDateTime": { "type": "string" }, "mdeDeviceId": { "type": "string" }, "azureAdDeviceId": { "type": "string" }, "deviceDnsName": { "type": "string" }, "osPlatform": { "type": "string" }, "osBuild": { "type": "integer" }, "version": { "type": "string" }, "healthStatus": { "type": "string" }, "riskScore": { "type": "string" }, "rbacGroupId": { "type": "integer" }, "rbacGroupName": {}, "onboardingStatus": { "type": "string" }, "defenderAvStatus": { "type": "string" }, "ipInterfaces": { "type": "array", "items": { "type": "string" } }, "vmMetadata": {}, "loggedOnUsers": { "type": "array" }, "detectionStatus": { "type": "string" }, "fileDetails": { "type": "object", "properties": { "sha1": { "type": "string" }, "sha256": { "type": "string" }, "fileName": { "type": "string" }, "filePath": { "type": "string" }, "fileSize": { "type": "integer" }, "filePublisher": {}, "signer": {}, "issuer": {} } } }, "required": [ "@@odata.type", "createdDateTime", "verdict", "remediationStatus", "remediationStatusDetails", "roles", "detailedRoles", "tags", "mdeDeviceId" ] } } }, "required": [ "id", "providerAlertId", "incidentId", "status", "severity", "classification", "determination", "serviceSource", "detectionSource", "productName", "detectorId", "tenantId", "title", "description", "recommendedActions", "category", "assignedTo", "alertWebUrl", "incidentWebUrl", "actorDisplayName", "threatDisplayName", "threatFamilyName", "mitreTechniques", "createdDateTime", "lastUpdateDateTime", "resolvedDateTime", "firstActivityDateTime", "lastActivityDateTime", "systemTags", "alertPolicyId", "additionalData",     "comments", "evidence" ] } } } } } }`
-
-    </details>
-
-
-1. Create a new step with Create File in Sharepoint
-
-    Choose a site address
-
-    Choose the folder where you want to create the file
-
-    File name should be: Report - Anti Virus Alerts @{formatDateTime(utcNow(), 'dd-MM-yyyy')}.xlsx`
-
-    File Content: use a expression with: Null
-
-1. Create a new step to create table
-    Location should be the same location as step 6
-
-    Document Library: Documents
-
-    File:  @outputs('Create_file_in_Sharepoint')?['body/Id'] 
-
-    Table Range: A1:F1
-
-    Column names: DeviceName,title,severity,category,status,createdtime
-
-1. Create a Apply to Each step
-   Ouput should be: @{body('Parse_JSON')?['value']}
-   Create another Apply to Each step inside this, this ouput should be: @{items('Apply_to_each')['evidence']}
-
-1. Create a Add a row into a table step inside Apply to Each 2
-Location: Same as in step 6
-
-Document Library: Documents
-
-File: @outputs('Create_file_in_Sharepoint')?['body/Id']
-
-Table: @outputs('Create_table')?['body/name']
-
-Row:
-`{
-  "DeviceName": @{items('Apply_to_each_2')?['deviceDnsName']},
-  "title": @{items('Apply_to_each')?['title']},
-  "severity": @{items('Apply_to_each')?['severity']},
-  "category": @{items('Apply_to_each')?['category']},
-  "status": @{items('Apply_to_each')?['status']},
-  "createdtime": @{items('Apply_to_each')?['createdDateTime']}
-}
-`
-
-It should look like this: 
-![Apply to Each](/assets/images/PA-MDE-alerts-to-Excel/Apply%20to%20Each.png)
-
-
-# End result screenshot
-
-**Info Notice:** There is a "clean excel file" step. However this isn't needed if expression is set at Null in step 5.
-{: .notice--info}
-
-![Result](/assets/images/PA-MDE-alerts-to-Excel/Result%20Flow.png)
+**Remove Plex Media Server**
+```
+adb shell pm uninstall -k --user 0 com.plexapp.mediaserver.smb
+```
+**Remove Netflix**
+```
+adb shell pm uninstall -k --user 0 com.netflix.ninja
+```
+**Remove Amazon**
+```
+adb shell pm uninstall -k --user 0 com.amazon.amazonvideo.livingroom
+adb shell pm uninstall -k --user 0 com.amazon.amazonvideo.livingroom.nvidia
+```
+**Remove YouTube Music**
+```
+adb shell pm uninstall -k --user 0 com.google.android.youtube.tvmusic
+```
+**Remove Google Play Games**
+```
+adb shell pm uninstall -k --user 0 com.google.android.play.games
+```
+**Remove Nvidia GeForce NOW for Shield TV**
+```
+adb shell pm uninstall -k --user 0 com.nvidia.tegrazone3
+```
+### Re-install packages
+If you removed something on accident or want to get an app back, use the following command
+```
+adb shell cmd package install-existing [package name]
+```
+--------------------------------
+I hope this guide helped you to make your (g)old Nvidia Shield faster and better.
