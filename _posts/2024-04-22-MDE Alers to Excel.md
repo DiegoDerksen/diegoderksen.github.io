@@ -84,7 +84,7 @@ Graph API > SecurityAlert.Read.All (Application)
 
     File name should be: Report - Anti Virus Alerts @{formatDateTime(utcNow(), 'dd-MM-yyyy')}.xlsx`
 
-    File Content: use Experssion with: Null
+    File Content: use a expression with: Null
 
 1. Create a new step to create table
     Location should be the same location as step 6
@@ -127,7 +127,7 @@ It should look like this:
 
 # End result screenshot
 
-**Info Notice:** There is a "clean excel file" step. However this isn't needed if expression is set at Null
+**Info Notice:** There is a "clean excel file" step. However this isn't needed if expression is set at Null in step 5.
 {: .notice--info}
 
 ![Result](/assets/images/PA-MDE-alerts-to-Excel/Result%20Flow.png)
