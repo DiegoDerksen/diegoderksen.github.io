@@ -1,8 +1,12 @@
 ---
 permalink: /about/
-title: "About"
+title: "About Me"
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+I'm Diégo Derksen, I live in the Netherlands and I'm currently employed at the Dutch Railways (NS). 
+I specialize myself in Microsoft Intune, Microsoft Defender and Power Automate/Logic Apps. I'm starting this blog because there isn't a lot of (beginner) information about Intune and Defender. I'm trying to fix that.
+
+I'll also be posting some of my hobby projects.
+
+Be sure to link me on LinkedIn!
