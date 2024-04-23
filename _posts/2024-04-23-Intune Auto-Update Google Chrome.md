@@ -8,7 +8,7 @@ tags:
   - Intune
 ---
 
-In this post, I’ll walk you through the process of setting up automatic updates for Google Chrome using Intune. As an Intune administrator, it’s crucial to ensure that all enrolled devices remain secure and up-to-date with the latest Windows and third-party updates. Google Chrome, being a widely used web browser, plays a pivotal role in facilitating online activities. Therefore, managing Chrome updates effectively is essential to maintain security, stability, and optimal performance.
+In this post, I’ll walk you through the process of setting up automatic updates for Google Chrome using Intune. As an Intune administrator, it’s crucial to ensure that all enrolled devices remain secure. Managing Chrome updates effectively is essential to maintain security, stability, and optimal performance.
 
 This will be a series on enabling automatic updates for various web browsers.
 
