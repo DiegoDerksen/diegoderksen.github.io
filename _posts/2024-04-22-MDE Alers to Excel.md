@@ -18,7 +18,7 @@ App registration in Azure with the following permission:
 Graph API > SecurityAlert.Read.All (Application)
 
 # Make a App Registration in Azure
-1. Go to Azure.com
+1. Go to portal.azure.com
 2. Click on Azure Active Directory
 3. Click on App Registration
 4. Click on New Registration
@@ -30,7 +30,7 @@ Graph API > SecurityAlert.Read.All (Application)
 
 ## Create a client secret
 1. Go to your newly created app
-2. Certificates & Secrets
+2. Go to Certificates & Secrets in the left menu
 3. Click on New Client Secret
 4. Set a description and expiry to your liking
 5. Copy the value of the secret, you **won't** be able to see this after you close this window
