@@ -14,7 +14,7 @@ In this tutorial, I'll walk you through the process of setting up automated repo
 # Prerequisites:
 Power Automate Premium (for HTTP connector)
 
-App registration in Azure with the following permission:
+App registration in Azure with the following permission:  
 Graph API > SecurityAlert.Read.All (Application)
 
 # Make a App Registration in Azure
@@ -49,9 +49,9 @@ Graph API > SecurityAlert.Read.All (Application)
     Your flow should look something like this:
     ![Initialize](/assets/images/PA-MDE-alerts-to-Excel/Initialize%20flow.png)
 
-1. Make a new step with a HTTP connector with the following settings:
-    Method: Get
-    URI: ``` `https://graph.microsoft.com/v1.0/security/alerts_v2?$filter=servicesource+eq+'microsoftDefenderForEndpoint'+and+createdDateTime+ge+@{formatDateTime(subtractFromTime(utcNow(), 7, 'Day'), 'yyyy-MM-ddTHH:mm:ssZ')}` ```
+1. Make a new step with a HTTP connector with the following settings:  
+    Method: Get  
+    URI: ``` `https://graph.microsoft.com/v1.0/security/alerts_v2?$filter=servicesource+eq+'microsoftDefenderForEndpoint'+and+createdDateTime+ge+@{formatDateTime(subtractFromTime(utcNow(), 7, 'Day'), 'yyyy-MM-ddTHH:mm:ssZ')}` ```  
     this URI will get all alerts from Microsoft Defender for Endpoint in the last 7 days
 
     Authentication: Active Directory OAuth
@@ -65,15 +65,12 @@ Graph API > SecurityAlert.Read.All (Application)
 
 1. Make a new step with a Parse JSON variable
     Content should be:
-
     <details>
-
     <summary>Body Schema</summary>
 
     `{ "type": "object", "properties": { "statusCode": { "type": "integer" }, "headers": { "type": "object", "properties": { "Transfer-Encoding": { "type": "string" }, "Vary": { "type": "string" }, "Strict-Transport-Security": { "type": "string" }, "request-id": { "type": "string" }, "client-request-id": { "type": "string" }, "x-ms-ags-diagnostic": { "type": "string" }, "OData-Version": { "type": "string" }, "Date": { "type": "string" }, "Content-Type": { "type": "string" }, "Content-Length": { "type": "string" } } }, "body": { "type": "object", "properties": { "@@odata.context": { "type": "string" }, "value": { "type": "array", "items": { "type": "object", "properties": { "id": { "type": "string" }, "providerAlertId": { "type": "string" }, "incidentId": { "type": "string" }, "status": { "type": "string" }, "severity": { "type": "string" }, "classification": {}, "determination": {}, "serviceSource": { "type": "string" }, "detectionSource": { "type": "string" }, "productName": { "type": "string" }, "detectorId": { "type": "string" }, "tenantId": { "type": "string" }, "title": { "type": "string" }, "description": { "type": "string" }, "recommendedActions": { "type": "string" }, "category": { "type": "string" }, "assignedTo": { "type": "string" }, "alertWebUrl": { "type": "string" }, "incidentWebUrl": { "type": "string" }, "actorDisplayName": {}, "threatDisplayName": { "type": "string" }, "threatFamilyName": { "type": "string" }, "mitreTechniques": { "type": "array" }, "createdDateTime": { "type": "string" }, "lastUpdateDateTime": { "type": "string" }, "resolvedDateTime": { "type": "string" }, "firstActivityDateTime": { "type": "string" }, "lastActivityDateTime": { "type": "string" }, "systemTags": { "type": "array" }, "alertPolicyId": {}, "additionalData": {}, "comments": { "type": "array" }, "evidence": { "type": "array", "items": { "type": "object", "properties": { "@@odata.type": { "type": "string" }, "createdDateTime": { "type": "string" }, "verdict": { "type": "string" }, "remediationStatus": { "type": "string" }, "remediationStatusDetails": {}, "roles": { "type": "array" }, "detailedRoles": { "type": "array", "items": { "type": "string" } }, "tags": { "type": "array" }, "firstSeenDateTime": { "type": "string" }, "mdeDeviceId": { "type": "string" }, "azureAdDeviceId": { "type": "string" }, "deviceDnsName": { "type": "string" }, "osPlatform": { "type": "string" }, "osBuild": { "type": "integer" }, "version": { "type": "string" }, "healthStatus": { "type": "string" }, "riskScore": { "type": "string" }, "rbacGroupId": { "type": "integer" }, "rbacGroupName": {}, "onboardingStatus": { "type": "string" }, "defenderAvStatus": { "type": "string" }, "ipInterfaces": { "type": "array", "items": { "type": "string" } }, "vmMetadata": {}, "loggedOnUsers": { "type": "array" }, "detectionStatus": { "type": "string" }, "fileDetails": { "type": "object", "properties": { "sha1": { "type": "string" }, "sha256": { "type": "string" }, "fileName": { "type": "string" }, "filePath": { "type": "string" }, "fileSize": { "type": "integer" }, "filePublisher": {}, "signer": {}, "issuer": {} } } }, "required": [ "@@odata.type", "createdDateTime", "verdict", "remediationStatus", "remediationStatusDetails", "roles", "detailedRoles", "tags", "mdeDeviceId" ] } } }, "required": [ "id", "providerAlertId", "incidentId", "status", "severity", "classification", "determination", "serviceSource", "detectionSource", "productName", "detectorId", "tenantId", "title", "description", "recommendedActions", "category", "assignedTo", "alertWebUrl", "incidentWebUrl", "actorDisplayName", "threatDisplayName", "threatFamilyName", "mitreTechniques", "createdDateTime", "lastUpdateDateTime", "resolvedDateTime", "firstActivityDateTime", "lastActivityDateTime", "systemTags", "alertPolicyId", "additionalData",     "comments", "evidence" ] } } } } } }`
 
     </details>
-
 
 1. Create a new step with Create File in Sharepoint
 
@@ -81,7 +78,7 @@ Graph API > SecurityAlert.Read.All (Application)
 
     Choose the folder where you want to create the file
 
-    File name should be: Report - Anti Virus Alerts @{formatDateTime(utcNow(), 'dd-MM-yyyy')}.xlsx`
+    File name should be: `Report - Anti Virus Alerts @{formatDateTime(utcNow(), 'dd-MM-yyyy')}.xlsx`
 
     File Content: use a expression with: Null
 
@@ -90,24 +87,24 @@ Graph API > SecurityAlert.Read.All (Application)
 
     Document Library: Documents
 
-    File:  @outputs('Create_file_in_Sharepoint')?['body/Id'] 
+    File:  `@outputs('Create_file_in_Sharepoint')?['body/Id']`
 
     Table Range: A1:F1
 
-    Column names: DeviceName,title,severity,category,status,createdtime
+    Column names: `DeviceName,title,severity,category,status,createdtime`
 
 1. Create a Apply to Each step
-   Ouput should be: @{body('Parse_JSON')?['value']}
-   Create another Apply to Each step inside this, this ouput should be: @{items('Apply_to_each')['evidence']}
+   Ouput should be: `@{body('Parse_JSON')?['value']}`  
+   Create another Apply to Each step inside this, this ouput should be: `@{items('Apply_to_each')['evidence']}`
 
 1. Create a Add a row into a table step inside Apply to Each 2
 Location: Same as in step 6
 
 Document Library: Documents
 
-File: @outputs('Create_file_in_Sharepoint')?['body/Id']
+File: `@outputs('Create_file_in_Sharepoint')?['body/Id']`
 
-Table: @outputs('Create_table')?['body/name']
+Table: `@outputs('Create_table')?['body/name']`
 
 Row:
 `{
