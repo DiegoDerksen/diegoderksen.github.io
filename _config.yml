@@ -110,3 +110,9 @@ comments:
     theme: "github-light" # "github-dark"
     issue_term: "pathname"
     label: "comment" # Optional - must be existing label.
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-1J9PFS9J13"
+    anonymize_ip: false # default
