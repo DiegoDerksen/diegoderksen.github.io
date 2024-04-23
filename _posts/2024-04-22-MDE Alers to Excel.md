@@ -51,7 +51,7 @@ Graph API > SecurityAlert.Read.All (Application)
 
 1. Make a new step with a HTTP connector with the following settings:  
     Method: Get  
-    URI: ``` `https://graph.microsoft.com/v1.0/security/alerts_v2?$filter=servicesource+eq+'microsoftDefenderForEndpoint'+and+createdDateTime+ge+@{formatDateTime(subtractFromTime(utcNow(), 7, 'Day'), 'yyyy-MM-ddTHH:mm:ssZ')}` ```  
+    URI: `https://graph.microsoft.com/v1.0/security/alerts_v2?$filter=servicesource+eq+'microsoftDefenderForEndpoint'+and+createdDateTime+ge+@{formatDateTime(subtractFromTime(utcNow(), 7, 'Day'), 'yyyy-MM-ddTHH:mm:ssZ')}`  
     this URI will get all alerts from Microsoft Defender for Endpoint in the last 7 days
 
     Authentication: Active Directory OAuth
