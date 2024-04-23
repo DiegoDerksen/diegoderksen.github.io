@@ -17,15 +17,15 @@ This will be a series on enabling automatic updates for various web browsers.
 - [Google Chrome ADM-/ADMX-templates & Google Updater ADMX-template](https://chromeenterprise.google/browser/download/#manage-policies-tab "Google Chrome adm-/admx-templates & Google Updater ADMX-template")
 
 # Steps
-We need to import both ADMX files into Intune. Chrome still requires the Windows ADMX template. 
+We need to import both Google/Chrome and Windows ADMX files into Intune. That's because Chrome still requires the Windows ADMX template. 
 
 ## Windows ADMX templates
 1. Download the Windows ADMX template for the right operating system version
 1. Run the .msi package to extract the templates
-1. The packages will be extracted to: `C:\Program Files (x86)\Microsoft Group Policy\Windows 10 October 2022 Update (22H2)`
+1. The packages will be extracted to: `C:\Program Files (x86)\Microsoft Group Policy\`
 
 ## Google Chrome ADMX templates
-1. Download both "Chrome ADM/ADMX templates" and "Gogle updater ADMX template update"
+1. Download both "Chrome ADM/ADMX templates" and "Google updater ADMX template update"
 1. Extract both zip files to a easy findable place
 
 ## Importing ADMX into intune
@@ -34,7 +34,7 @@ We need to import both ADMX files into Intune. Chrome still requires the Windows
 1. On the "Configuration" page you will find "Import ADMX" at the top of the page, click on this button
 1. Click on "Import"
 
-    **Info Notice:** We first need to import the Windows ADMX before uploading the Chrome ADMX.
+    **Info Notice:** We first need to import the Windows ADMX before importing the Google.admx template.
     {: .notice--info}
 
 ### Windows ADMX Import:
@@ -79,3 +79,9 @@ We need to import both ADMX files into Intune. Chrome still requires the Windows
    - "**Update policy override default**" and set this to enabled and "Always allow updates (recommended)"
 1. Choose a scope tag if you use them
 1. Assign the policy to users and create the policy.
+
+You have now set the policy inside Intune to auto update Chrome.
+
+## How do I know if the policy has hit the device?
+
+You can type in `chrome://policy` in the URL bar inside Chrome to check whether the policy has hit the device.
