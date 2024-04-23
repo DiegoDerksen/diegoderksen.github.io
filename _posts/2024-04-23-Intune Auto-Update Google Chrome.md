@@ -34,7 +34,8 @@ We need to import both ADMX files into Intune. Chrome still requires the Windows
 1. On the "Configuration" page you will find "Import ADMX" at the top of the page, click on this button
 1. Click on "Import"
 
-    Info Notice: We first need to import the Windows ADMX before uploading the Chrome ADMX .{: .notice--info}
+    **Info Notice:** We first need to import the Windows ADMX before uploading the Chrome ADMX.
+    {: .notice--info}
 
 ### Windows ADMX Import:
 
