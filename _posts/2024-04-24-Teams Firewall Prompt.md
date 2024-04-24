@@ -8,7 +8,7 @@ tags:
   - PowerShell
 ---
 
-Are your users seeing a firewall Window regarding Teams when they first logon? Fear not! In this article, we'll walk you through a swift solution using an Intune remediation script.
+Are your users seeing a firewall Window regarding Teams when they first logon? Fear not! In this article, I'll walk you through a swift solution using an Intune remediation script.
 
 
 This nifty script performs a simple yet effective task: it checks whether a teams.exe firewall rule exists. If not, it promptly creates a rule based on the userprofile Firewall path.
@@ -19,7 +19,7 @@ This nifty script performs a simple yet effective task: it checks whether a team
 
 # Remediation Script
 
-Let's dive into the Detect and Remediate scripts. Just copy-paste this and save as a Powershell script.
+Let's dive into the detect and remediate scripts. Just copy-paste this and save as a Powershell script.
 
 ## Teams-Detect.ps1
 
