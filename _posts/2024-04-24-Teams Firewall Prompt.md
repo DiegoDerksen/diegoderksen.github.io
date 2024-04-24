@@ -1,8 +1,8 @@
 ---
-title: "Tip: Microsoft Teams Remediation Script"
+title: "Post: Microsoft Teams Remediation Script"
 last_modified_at: 2024-04-24T12:00:00
 categories:
-  - Quick Tip
+  - Post
 tags:
   - Intune
   - PowerShell
