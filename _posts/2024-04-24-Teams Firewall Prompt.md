@@ -11,7 +11,7 @@ tags:
 Are your users seeing a firewall Window regarding Teams when they first logon? Fear not! In this article, I'll walk you through a swift solution using an Intune remediation script.
 
 
-This nifty script performs a simple yet effective task: it checks whether a teams.exe firewall rule exists. If not, it promptly creates a rule based on the userprofile Firewall path.
+This nifty script performs a simple yet effective task: it checks whether a teams.exe firewall rule exists. If not, it promptly creates a rule based on the userprofile Teams path.
 
 # Prerequisites
 - Windows Enterprise
