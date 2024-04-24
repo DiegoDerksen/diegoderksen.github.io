@@ -7,7 +7,7 @@ tags:
   - Home Server
 ---
 
-Looking to get more out of your Nvidia Shield TV? From improving speed to customizing your interface, there are ways to enhance your experience. In this guide, we'll explore how to speed up your device and install a custom launcher to hide ads, helping you make the most of your entertainment hub. Let's dive in and optimize your Shield TV
+Looking to get more out of your Nvidia Shield TV? From improving speed to customizing your interface, there are ways to enhance your experience. In this guide, we'll explore how to speed up your device and install a custom launcher to hide ads, helping you make the most of your entertainment hub. Let's dive in and optimize your Shield TV.
 
 # Prerequisites
 * PC (I'll be using MacOS)
