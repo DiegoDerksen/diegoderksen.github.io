@@ -7,7 +7,7 @@ tags:
   - Intune
 ---
 
-In this edition of quick tips, we're delving into the smooth journey of onboarding your device to Intune via the Hardware Hash, all powered by a convenient PowerShell script. Join us as we uncover the simplicity and efficiency of this process. Let's dive in!
+In this edition of quick tips, we're delving into the smooth journey of onboarding your device to Intune via the Hardware Hash, all powered by a convenient PowerShell script.
 
 ----------------
 
