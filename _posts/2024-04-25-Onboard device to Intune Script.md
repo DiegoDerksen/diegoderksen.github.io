@@ -15,7 +15,8 @@ In this edition of quick tips, we're delving into the smooth journey of onboardi
 
 
 
-**Info Notice:** Ensure that your device is connected to the internet before proceeding. {: .notice--info}
+**Info Notice:** Ensure that your device is connected to the internet before proceeding.
+{: .notice--info}
 
 2. Type the following command in the cmd prompt to open Powershell
 
