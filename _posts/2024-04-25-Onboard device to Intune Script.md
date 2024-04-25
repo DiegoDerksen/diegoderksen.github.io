@@ -13,42 +13,34 @@ In this edition of quick tips, we're delving into the smooth journey of onboardi
 
 1. Access the Command Prompt by pressing Shift + F10 during the language selection step of a new Windows installation.
 
-
-
-**Info Notice:** Ensure that your device is connected to the internet before proceeding.
-{: .notice--info}
+	**Info Notice:** Ensure that your device is connected to the internet before proceeding.
+	{: .notice--info}
 
 2. Type the following command in the cmd prompt to open Powershell
 
-```
- Powershell
-```
-
+	```
+	 Powershell
+	```
 
 3. Execute the following command in PowerShell to set the execution policy for the current process to unrestricted:
-  
-```
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
-```
 
+	```
+	Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
+	```
 
 4. Install the script named “Get-WindowsAutoPilotInfo” using the following command:
 
-
-```
-Install-Script -Name Get-WindowsAutoPilotInfo
-```
-
+	```
+	Install-Script -Name Get-WindowsAutoPilotInfo
+	```
 
 5. After the script has been installed, type in the following script:
 
-
-```
-Get-WindowsAutoPilotInfo.ps1 -Online
-```
+	```
+	Get-WindowsAutoPilotInfo.ps1 -Online
+	```
 
 6. Login with Microsoft credentials from a administrator
-
 
 --------------
 
