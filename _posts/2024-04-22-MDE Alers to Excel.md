@@ -9,7 +9,7 @@ tags:
   - Reporting
 ---
 
-In this tutorial, I'll walk you through the process of setting up automated reporting from Microsoft Defender for Endpoint alerts directly to an Excel sheet using Power Automate and/or Logic App. By implementing this solution, you'll gain valuable insights into activities within your environment, simplifying monitoring and analysis tasks. Let's dive into the steps to streamline your reporting workflow and empower your security efforts
+In this tutorial, I'll walk you through the process of setting up automated reporting from Microsoft Defender for Endpoint alerts directly to an Excel sheet using Power Automate and/or Logic App. By implementing this solution, you'll gain valuable insights into activities within your environment, simplifying monitoring and analysis tasks. Let's dive into the steps to streamline your reporting workflow and empower your security efforts.
 
 # Prerequisites:
 Power Automate Premium (for HTTP connector)
