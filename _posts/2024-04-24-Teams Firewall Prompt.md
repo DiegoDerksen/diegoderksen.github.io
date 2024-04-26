@@ -23,7 +23,7 @@ Let's dive into the detect and remediate scripts. Just copy-paste this and save 
 
 ## Teams-Detect.ps1
 
-```
+```powershell
 <#
     .SYNOPSIS
         Detect whether the Microsoft Teams firewall policies have been created
@@ -53,7 +53,7 @@ if ($null -ne $firewallRule) {
 
 ## Teams-Remediate.ps1
 
-```
+```powershell
 <#
     .SYNOPSIS
 Create Teams firewall rules

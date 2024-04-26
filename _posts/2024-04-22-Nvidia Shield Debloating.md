@@ -68,11 +68,11 @@ Now comes the fun part. Removing all the useless and unwanted apps pushed by Nvi
 Inside the Terminal/CMD while being connected to your shield with ADB copy and paste the following code blocks
 
 **Remove Nvidia bloat**
-```
+```bash
 adb shell pm uninstall -k --user 0 com.nvidia.ota & adb shell pm uninstall -k --user 0 com.nvidia.ocs & adb shell pm uninstall -k --user 0 com.nvidia.diagtools & adb shell pm uninstall -k --user 0 com.nvidia.shieldtech.hooks & adb shell pm uninstall -k --user 0 com.nvidia.feedback & adb shell pm uninstall -k --user 0 com.nvidia.shield.registration & adb shell pm uninstall -k --user 0 com.nvidia.SHIELD.Platform.Analyser & adb shell pm uninstall -k --user 0 com.nvidia.shield.remote.server & adb shell pm uninstall -k --user 0 com.nvidia.shieldtech.proxy & adb shell pm uninstall -k --user 0 com.nvidia.factorybundling & adb shell pm uninstall -k --user 0 com.nvidia.shieldbeta & adb shell pm uninstall -k --user 0 com.nvidia.shield.registration & adb shell pm uninstall -k --user 0 com.nvidia.shield.nvcustomize & adb shell pm uninstall -k --user 0 com.nvidia.NvCPLUpdater & adb shell pm uninstall -k --user 0 com.nvidia.benchmarkblocker & adb shell pm uninstall -k --user 0 android.autoinstalls.config.nvidia & adb shell pm uninstall -k --user 0 com.nvidia.hotwordsetup & adb shell pm uninstall -k --user 0 com.nvidia.enhancedlogging & adb shell pm uninstall -k --user 0 com.nvidia.shield.ask & adb shell pm uninstall -k --user 0 com.nvidia.stats & adb shell pm uninstall -k --user 0 com.nvidia.shield.appselector & adb shell pm uninstall -k --user 0 com.nvidia.beyonder.server & adb shell pm uninstall -k --user 0 com.nvidia.developerwidget & adb shell pm uninstall -k --user 0 com.nvidia.NvAccSt & adb shell pm uninstall -k --user 0 com.nvidia.shield.remotediagnostic
 ```
 **Remove Google bloat** 
-```
+```bash
 adb shell pm uninstall -k --user 0 com.google.android.speech.pumpkin & adb shell pm uninstall -k --user 0 com.google.android.tts & adb shell pm uninstall -k --user 0 com.google.android.videos & adb shell pm uninstall -k --user 0 com.google.android.tvrecommendations & adb shell pm uninstall -k --user 0 com.google.android.syncadapters.calendar & adb shell pm uninstall -k --user 0 com.google.android.backuptransport & adb shell pm uninstall -k --user 0 com.google.android.partnersetup & adb shell pm uninstall -k --user 0 com.google.android.inputmethod.korean & adb shell pm uninstall -k --user 0 com.google.android.inputmethod.pinyin & adb shell pm uninstall -k --user 0 com.google.android.apps.inputmethod.zhuyin & adb shell pm uninstall -k --user 0 com.google.android.tv & adb shell pm uninstall -k --user 0 com.google.android.tv.frameworkpackagestubs & adb shell pm uninstall -k --user 0 com.google.android.tv.bugreportsender & adb shell pm uninstall -k --user 0 com.google.android.backdrop & adb shell pm uninstall -k --user 0 com.google.android.leanbacklauncher.recommendations & adb shell pm uninstall -k --user 0 com.google.android.feedback
 ```
 **Notice:** Only disable the following if another launcher is installed.
@@ -83,40 +83,40 @@ adb shell pm disable -k --user 0 com.google.android.tvlauncher
 adb shell pm disable -k --user 0 com.google.android.leanbacklauncher
 ```
 **Remove Android bloat**
-```
+```bash
 adb shell pm uninstall -k --user 0 com.android.gallery3d & adb shell pm uninstall -k --user 0 com.android.dreams.basic & adb shell pm uninstall -k --user 0 com.android.printspooler & adb shell pm uninstall -k --user 0 com.android.feedback & adb shell pm uninstall -k --user 0 com.android.keychain & adb shell pm uninstall -k --user 0 com.android.cts.priv.ctsshim & adb shell pm uninstall -k --user 0 com.android.cts.ctsshim & adb shell pm uninstall -k --user 0 com.android.providers.calendar & adb shell pm uninstall -k --user 0 com.android.providers.contacts & adb shell pm uninstall -k --user 0 com.android.se
 ```
 ## 3b. Removing more bloat
 If you're like me and use Jellyfin or Plex and don't use the device to play games, you can also remove the following packages
 
 **Remove Plex Media Server**
-```
+```bash
 adb shell pm uninstall -k --user 0 com.plexapp.mediaserver.smb
 ```
 **Remove Netflix**
-```
+```bash
 adb shell pm uninstall -k --user 0 com.netflix.ninja
 ```
 **Remove Amazon**
-```
+```bash
 adb shell pm uninstall -k --user 0 com.amazon.amazonvideo.livingroom
 adb shell pm uninstall -k --user 0 com.amazon.amazonvideo.livingroom.nvidia
 ```
 **Remove YouTube Music**
-```
+```bash
 adb shell pm uninstall -k --user 0 com.google.android.youtube.tvmusic
 ```
 **Remove Google Play Games**
-```
+```bash
 adb shell pm uninstall -k --user 0 com.google.android.play.games
 ```
 **Remove Nvidia GeForce NOW for Shield TV**
-```
+```bash
 adb shell pm uninstall -k --user 0 com.nvidia.tegrazone3
 ```
 ### Re-install packages
 If you removed something on accident or want to get an app back, use the following command
-```
+```bash
 adb shell cmd package install-existing [package name]
 ```
 --------------------------------

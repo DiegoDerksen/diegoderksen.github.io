@@ -18,25 +18,25 @@ In this edition of quick tips, we're delving into the smooth journey of onboardi
 
 2. Type the following command in the cmd prompt to open Powershell
 
-	```
+	```powershell
 	 Powershell
 	```
 
 3. Execute the following command in PowerShell to set the execution policy for the current process to unrestricted:
 
-	```
+	```powershell
 	Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
 	```
 
 4. Install the script named “Get-WindowsAutoPilotInfo” using the following command:
 
-	```
+	```powershell
 	Install-Script -Name Get-WindowsAutoPilotInfo
 	```
 
 5. After the script has been installed, type in the following script:
 
-	```
+	```powershell
 	Get-WindowsAutoPilotInfo.ps1 -Online
 	```
 
