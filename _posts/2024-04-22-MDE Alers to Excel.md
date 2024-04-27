@@ -51,7 +51,10 @@ Graph API > SecurityAlert.Read.All (Application)
 
 1. Make a new step with a HTTP connector with the following settings:  
     Method: Get  
-    URI: `https://graph.microsoft.com/v1.0/security/alerts_v2?$filter=servicesource+eq+'microsoftDefenderForEndpoint'+and+createdDateTime+ge+@{formatDateTime(subtractFromTime(utcNow(), 7, 'Day'), 'yyyy-MM-ddTHH:mm:ssZ')}`  
+    URI:
+    ```powershell
+    https://graph.microsoft.com/v1.0/security/alerts_v2?$filter=servicesource+eq+'microsoftDefenderForEndpoint'+and+createdDateTime+ge+@{formatDateTime(subtractFromTime(utcNow(), 7, 'Day'), 'yyyy-MM-ddTHH:mm:ssZ')}
+    ```
     this URI will get all alerts from Microsoft Defender for Endpoint in the last 7 days
 
     Authentication: Active Directory OAuth
@@ -105,7 +108,8 @@ File: `@outputs('Create_file_in_Sharepoint')?['body/Id']`
 Table: `@outputs('Create_table')?['body/name']`
 
 Row:
-`{
+``` json
+{
   "DeviceName": @{items('Apply_to_each_2')?['deviceDnsName']},
   "title": @{items('Apply_to_each')?['title']},
   "severity": @{items('Apply_to_each')?['severity']},
@@ -113,7 +117,7 @@ Row:
   "status": @{items('Apply_to_each')?['status']},
   "createdtime": @{items('Apply_to_each')?['createdDateTime']}
 }
-`
+```
 
 It should look like this: 
 ![Apply to Each](/assets/images/PA-MDE-alerts-to-Excel/Apply%20to%20Each.png)
