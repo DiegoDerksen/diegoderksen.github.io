@@ -5,7 +5,7 @@ categories:
   - Blog
 tags:
   - Power Automate
-  - Microsoft Defender for Endpoint
+  - Microsoft Defender
   - Reporting
 ---
 
