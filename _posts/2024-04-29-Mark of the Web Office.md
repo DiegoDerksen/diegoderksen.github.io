@@ -57,8 +57,10 @@ Ensure to assign the configuration policy the correct scope tag if you intend to
 What I've observed is that it doesn't function on my favourite browser, Firefox. However, it does work on Chrome and Edge.
 
 # Conclusion
-After exploring the intricacies of managing security measures in enterprise environments, it's evident that maintaining a balance between robust protection and user convenience is paramount. By understanding features like the "Mark of the Web" (MotW), navigating platform-specific URLs, and implementing precise policy configurations, organizations can effectively safeguard their assets while ensuring seamless workflows for users.
+After exploring the intricacies of managing security measures in enterprise environments, it's evident that maintaining a balance between robust protection and user convenience is paramount. By understanding features like the MotW, getting the correct URLs, and implementing precise policy configurations, organizations can effectively secure their devices.
 
-Remember to continuously evaluate and adapt security protocols based on emerging challenges and user feedback. Ultimately, a multifaceted approach to security management, combining technical expertise, user-centric design, and proactive policy implementation, is essential for safeguarding organizational assets in today's dynamic digital landscape.
+Remember to continuously evaluate and adapt security protocols based on emerging challenges and user feedback. 
 
-Thank you for joining me on this exploration of security considerations in file management and user experience. 
+Thank you for reading this post regarding Mark of the Web and solving this issue with Intune. I hope this post helped you.
+
+Connect with me on [LinkedIn](https://www.linkedin.com/in/diego-derksen/)!
