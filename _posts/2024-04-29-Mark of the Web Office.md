@@ -4,7 +4,6 @@ last_modified_at: 2024-04-29T21:30:00
 categories:
   - Blog
 tags:
-  - Microsoft
   - Office
   - Microsoft 365
 ---
