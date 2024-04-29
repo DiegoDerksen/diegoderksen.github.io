@@ -8,7 +8,7 @@ tags:
   - Office
   - Microsoft 365
 ---
-I encountered a user who raised an incident because multiple departments were unable to open an Excel sheet with macros (.xlsm) from our Sharepoint site. The solution seemed simple: just right-click on the file, go to properties, and unblock it. Yet, it wasn't enough because they always used the same documents. This prompted me to delve deeper into what exactly occurs when someone downloads a file.
+I encountered a user who raised an incident because multiple departments were unable to open an Excel sheet with macros (.xlsm) from our Sharepoint site, getting a red banner saying: *"**SECURITY RISK**: Microsoft has blocked macros from running because the source of this file is untrusted"*. The solution seemed simple: just right-click on the file, go to properties, and unblock it. Yet, it wasn't enough because they always used the same documents. This prompted me to delve deeper into what exactly occurs when someone downloads a file.
 # What happens when someone downloads a file from the internet?
 When a file is downloaded from the internet, it receives what's known as a "Mark of the Web" (MotW). This feature, inherent to NTFS, indicates the file's origin from the internet and warns of potential harm it could pose to the computer. Understanding the implications of this marker is crucial for maintaining the security, integrity and usability of your system.
 
