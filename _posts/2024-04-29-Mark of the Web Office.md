@@ -8,9 +8,9 @@ tags:
   - Office
   - Microsoft 365
 ---
-I encountered a user who raised an incident because multiple departments were unable to open an Excel sheet with macros (.xlsm) from our Sharepoint site, getting a red banner saying: *"**SECURITY RISK**: Microsoft has blocked macros from running because the source of this file is untrusted"*. The solution seemed simple: just right-click on the file, go to properties, and unblock it. Yet, it wasn't enough because they always used the same documents. This prompted me to delve deeper into what exactly occurs when someone downloads a file.
+I encountered a user who raised an incident because multiple departments were unable to open an Excel sheet with macros (.xlsm) from our Sharepoint site, getting a red banner saying: *"**SECURITY RISK**: Microsoft has blocked macros from running because the source of this file is untrusted"*. The solution seemed simple: just right-click on the file, go to properties, and unblock it or just click on "Open in Desktop App". Yet, it wasn't enough because they always used the same documents and didn't want to manipulate the original file. This prompted me to delve deeper into what exactly occurs when someone downloads a file.
 # What happens when someone downloads a file from the internet?
-When a file is downloaded from the internet, it receives what's known as a "Mark of the Web" (MotW). This feature, inherent to NTFS, indicates the file's origin from the internet and warns of potential harm it could pose to the computer. Understanding the implications of this marker is crucial for maintaining the security, integrity and usability of your system.
+When a file is downloaded from the internet, it receives what's known as a "Mark of the Web" (MotW). This feature, inherent to NTFS, indicates the file's origin from the internet and warns of potential harm it could pose to the computer. Understanding the implications of this marker is crucial for maintaining the security, integrity and usability of your system. 
 
 # Why this could be a issue
 Considering security, the "Mark of the Web" (MotW) serves as a valuable feature, [notwithstanding certain vulnerabilities that have been identified](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-36584). However, in an enterprise organization where departments frequently utilize macro documents shared on SharePoint, this feature can become a source of frustration. It highlights the need for a nuanced approach to security measures that balances protection with user convenience, particularly in workflow-intensive environments.
@@ -22,6 +22,8 @@ Actually, several years ago, in Version 2208, which was released on October 11, 
 As per [Microsoft documentation](https://learn.microsoft.com/en-us/deployoffice/security/internet-macros-blocked#files-on-onedrive-or-sharepoint), the correct URLs for SharePoint and OneDrive are: https://{your-domain-name}.sharepoint.com (for SharePoint) or https://{your-domain-name}-my.sharepoint.com (for OneDrive). However, I encountered an issue when attempting to use these URLs. They didn't work when saving it as a copy. Strangely, they did work when directly downloading it from SharePoint without opening the file or from Teams. This inconsistency raises questions about the underlying mechanics—why does this happen?
 
 # Solving the issue
+If your users don't require a copy and simply want to edit the original file, they can easily do so by clicking on "Open in Desktop app." This action marks the document as safe and prevents macros from being blocked, streamlining the editing process while ensuring security.
+
 Let's explore the zone identifier assigned to the file using PowerShell. Navigate to the folder containing the file, then open PowerShell there and execute the following command (you don't need admin rights):
 
 ```powershell
