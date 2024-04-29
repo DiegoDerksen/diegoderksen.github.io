@@ -17,7 +17,7 @@ Considering security, the "Mark of the Web" (MotW) serves as a valuable feature,
 # When did Microsoft change this behaviour in Office?
 Actually, several years ago, in Version 2208, which was released on October 11, 2022,
 
-# What are the trusted sites for our OneDrive and Sharepoint?
+# What are the site URLs for our OneDrive and Sharepoint?
 As per [Microsoft documentation](https://learn.microsoft.com/en-us/deployoffice/security/internet-macros-blocked#files-on-onedrive-or-sharepoint), the correct URLs for SharePoint and OneDrive are: https://{your-domain-name}.sharepoint.com (for SharePoint) or https://{your-domain-name}-my.sharepoint.com (for OneDrive). However, I encountered an issue when attempting to use these URLs. They didn't work when saving it as a copy. Strangely, they did work when directly downloading it from SharePoint without opening the file or from Teams. This inconsistency raises questions about the underlying mechanics—why does this happen?
 
 # Solving the issue
