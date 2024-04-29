@@ -52,7 +52,9 @@ Add the following values:
 | https://{your-domain-name}.sharepoint.com | 2     |
 | https://euc-excel.officeapps.live.com     | 2     |
 
-Ensure to assign the configuration policy the correct scope tag if you intend to use it, and assign it to the appropriate departments. This step ensures that the policy is applied only to the intended devices or users, enhancing organizational efficiency and security by targeting specific areas as needed.
+Ensure to assign the configuration policy the correct scope tag if you intend to use it, and assign it to the appropriate departments. This step ensures that the policy is applied only to the intended devices or users, enhancing organizational efficiency and security by targeting specific areas as needed. 
+
+What I've observed is that it doesn't function on my favourite browser, Firefox. However, it does work on Chrome and Edge.
 
 # Conclusion
 After exploring the intricacies of managing security measures in enterprise environments, it's evident that maintaining a balance between robust protection and user convenience is paramount. By understanding features like the "Mark of the Web" (MotW), navigating platform-specific URLs, and implementing precise policy configurations, organizations can effectively safeguard their assets while ensuring seamless workflows for users.
