@@ -49,6 +49,7 @@ Add the following values:
 | ----------------------------------------- | ----- |
 | https://{your-domain-name}.sharepoint.com | 2     |
 | https://euc-excel.officeapps.live.com     | 2     |
+
 Ensure to assign the configuration policy the correct scope tag if you intend to use it, and assign it to the appropriate departments. This step ensures that the policy is applied only to the intended devices or users, enhancing organizational efficiency and security by targeting specific areas as needed.
 
 # Conclusion
