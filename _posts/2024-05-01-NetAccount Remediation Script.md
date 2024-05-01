@@ -7,9 +7,9 @@ tags:
   - Intune
   - PowerShell
 ---
-Check out this quick Intune remediation script for optimizing Net Accounts settings: lockout threshold, Lockout duration and the lockout observation window. 
+Check out this quick Intune remediation script for optimizing Net Accounts settings: lockout threshold, lockout duration and the lockout observation window. 
 
-Enhance local account security and boost your secure score, aligning with Center for Internet Security (CIS) benchmarks and the Microsoft Secure Score.
+Enhance local account security and boost your secure score, aligning with Center for Internet Security (CIS) benchmarks.
 
 # Prerequisites
 - Windows Enterprise
