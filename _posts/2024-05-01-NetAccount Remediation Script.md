@@ -7,7 +7,7 @@ tags:
   - Intune
   - PowerShell
 ---
-Check out this quick Intune remediation script for optimizing Net Accounts settings: lockout threshold, lockout duration and the lockout observation window. 
+Check out this quick Intune remediation script for optimizing Net Accounts settings. This sets the lockout threshold to 10 tries, lockout duration to 15 minutes and the reset lockout counter to 15 minutes.
 
 Enhance local account security and boost your secure score, aligning with Center for Internet Security (CIS) benchmarks.
 
