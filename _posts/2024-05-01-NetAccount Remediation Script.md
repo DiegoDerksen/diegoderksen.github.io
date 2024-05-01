@@ -7,7 +7,7 @@ tags:
   - Intune
   - PowerShell
 ---
-Check out this quick Intune remediation script for optimizing NetAccounts settings: failed logon attempts, lockout duration and number of minutes that a locked-out account must remain locked out before automatically becoming unlocked. 
+Check out this quick Intune remediation script for optimizing Net Accounts settings: lockout threshold, Lockout duration and the lockout observation window. 
 
 Enhance local account security and boost your secure score, aligning with Center for Internet Security (CIS) benchmarks and the Microsoft Secure Score.
 
