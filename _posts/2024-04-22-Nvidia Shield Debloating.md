@@ -1,5 +1,5 @@
 ---
-title: "Post: Debloating Nvidia Shield"
+title: "Post: Debloating Nvidia Shield 1/6"
 last_modified_at: 2024-04-22T21:00:00+02:00
 categories:
   - Blog
@@ -8,6 +8,8 @@ tags:
 ---
 
 Looking to get more out of your Nvidia Shield TV? From improving speed to customizing your interface, there are ways to enhance your experience. In this guide, we'll explore how to speed up your device and install a custom launcher to hide ads, helping you make the most of your entertainment hub. Let's dive in and optimize your Shield TV.
+
+In future installments, we'll explore additional applications running on my home server. This post marks part 1/6 in this series of making your personal home server.
 
 # Prerequisites
 * PC (I'll be using MacOS)
