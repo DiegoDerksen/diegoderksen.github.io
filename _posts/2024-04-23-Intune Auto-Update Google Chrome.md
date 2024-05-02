@@ -29,6 +29,7 @@ We need to import both Google/Chrome and Windows ADMX files into Intune. That's 
 
 ## Importing ADMX into intune
 1. Go to the Intune dashboard
+1. Go to "Devices"
 1. Go to "Configuration"
 1. On the "Configuration" page you will find "Import ADMX" at the top of the page, click on this button
 1. Click on "Import"
