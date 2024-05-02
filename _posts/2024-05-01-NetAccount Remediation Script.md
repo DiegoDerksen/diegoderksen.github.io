@@ -1,8 +1,8 @@
 ---
-title: "Post: Net Accounts Remediation Script"
+title: "Tip: Net Accounts Remediation Script"
 last_modified_at: 2024-05-01T21:30:00
 categories:
-  - Blog
+  - Quick Tips
 tags:
   - Intune
   - PowerShell
