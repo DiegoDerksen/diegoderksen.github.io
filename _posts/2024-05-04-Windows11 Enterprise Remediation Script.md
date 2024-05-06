@@ -20,43 +20,56 @@ Let's dive into the detect and remediate scripts. Just copy-paste this and save 
 ## Windows-Enterprise-or-pro-Detect.ps1
 
 ```powershell
-$WindowsSKU = (Get-WmiObject Win32_OperatingSystem).OperatingSystemSKU
-if ($WindowsSKU -eq 4) {
-Write-Output "Windows edition is Enterprise"
-Exit 0
+# Define the registry key path and value
+$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MfaRequiredInClipRenew"
+$registryValueName = "Verify Multifactor Authentication in ClipRenew"
+
+# Check if the registry key already exists
+if (Test-Path -Path $registryPath) {
+    # If the key exists, check the value
+    $value = Get-ItemProperty -Path $registryPath -Name $registryValueName
+    if ($value -eq 0) {
+        Write-Output "Registry key and value exist. No changes needed."
+               exit 0 # Success
+    } else {
+        Write-Output "Registry key exists but value is incorrect."
+                exit 1 # Configuration found but not compliant
+    }
 } else {
-Write-Output "Windows edition is not Enterprise"
-Exit 1
+    Write-Output "Registry key does not exist."
+            exit 1 # Does not exist
 }
 ```
 
 ## Windows-Enterprise-Remediate.ps1
 
 ```powershell
-# Define the registry key path and value
+# Define registry key path and values
 $registryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MfaRequiredInClipRenew"
 $registryValueName = "Verify Multifactor Authentication in ClipRenew"
-$registryValueData = 0  # DWORD value of 0
-$sid = New-Object System.Security.Principal.SecurityIdentifier("S-1-1-0")  # SID for the Everyone group
+$registryValueData = 0  # DWORD value
+$sid = New-Object System.Security.Principal.SecurityIdentifier("S-1-1-0")  # Everyone group SID
 
-# Check if the registry key already exists
+# Check if registry key exists
 if (-not (Test-Path -Path $registryPath)) {
-    # If the key doesn't exist, create it and set the DWORD value
-    New-Item -Path $registryPath -Force | Out-Null
-    Set-ItemProperty -Path $registryPath -Name $registryValueName -Value $registryValueData -Type DWORD
-    Write-Output "Registry key created and DWORD value added."
-} else {
-    Write-Output "Registry key already exists. No changes made."
+  Write-Output "Creating missing registry key..."
+  New-Item -Path $registryPath -Force | Out-Null
 }
 
-# Add read permissions for SID (S-1-1-0, Everyone) to the registry key with inheritance
+# Set registry value
+Write-Output "Setting registry value..."
+Set-ItemProperty -Path $registryPath -Name $registryValueName -Value $registryValueData -Type DWORD
+
+# Add read permissions for "Everyone" group
+Write-Output "Granting read permissions..."
 $acl = Get-Acl -Path $registryPath
 $ruleSID = New-Object System.Security.AccessControl.RegistryAccessRule($sid, "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow")
 $acl.AddAccessRule($ruleSID)
 Set-Acl -Path $registryPath -AclObject $acl
-Write-Output "Added 'Everyone' group and SID ($sid) with read permissions (with inheritance) to the registry key."
 
 Start-Process "$env:SystemRoot\system32\ClipRenew.exe"
+
+Write-Output "Remediation complete."
 ```
 
 # Import into Intune
