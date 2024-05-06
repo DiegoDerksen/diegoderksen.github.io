@@ -13,6 +13,8 @@ This is because ClipRenew does not make mfarequiredcliprenew in the registry and
 
 I have made a remediation script to keep track on which devices are pro or enterprise. If it's pro it automatically starts the script from Rudy and upgrades to Windows 11 Enterprise.
 
+Microsoft's product team is already alerted of this issue and it will be fixed in the future.
+
 # Remediation Script
 
 Let's dive into the detect and remediate scripts. Just copy-paste this and save as a Powershell script.
