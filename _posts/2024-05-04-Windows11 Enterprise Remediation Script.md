@@ -20,24 +20,16 @@ Let's dive into the detect and remediate scripts. Just copy-paste this and save 
 ## Windows-Enterprise-or-pro-Detect.ps1
 
 ```powershell
-# Define the registry key path and value
+# Define the registry key path
 $registryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MfaRequiredInClipRenew"
-$registryValueName = "Verify Multifactor Authentication in ClipRenew"
 
 # Check if the registry key already exists
 if (Test-Path -Path $registryPath) {
-    # If the key exists, check the value
-    $value = Get-ItemProperty -Path $registryPath -Name $registryValueName
-    if ($value -eq 0) {
-        Write-Output "Registry key and value exist. No changes needed."
-               exit 0 # Success
-    } else {
-        Write-Output "Registry key exists but value is incorrect."
-                exit 1 # Configuration found but not compliant
-    }
+    Write-Output "Registry key exists. No changes needed."
+    exit 0
 } else {
     Write-Output "Registry key does not exist."
-            exit 1 # Does not exist
+    exit 1
 }
 ```
 
@@ -50,15 +42,15 @@ $registryValueName = "Verify Multifactor Authentication in ClipRenew"
 $registryValueData = 0  # DWORD value
 $sid = New-Object System.Security.Principal.SecurityIdentifier("S-1-1-0")  # Everyone group SID
 
-# Check if registry key exists
+# Check if the registry key already exists
 if (-not (Test-Path -Path $registryPath)) {
-  Write-Output "Creating missing registry key..."
+  # If the key doesn't exist, create it and set the DWORD value
   New-Item -Path $registryPath -Force | Out-Null
+  Set-ItemProperty -Path $registryPath -Name $registryValueName -Value $registryValueData -Type DWORD
+  Write-Output "Registry key created and DWORD value added."
+} else {
+  Write-Output "Registry key already exists. No changes made."
 }
-
-# Set registry value
-Write-Output "Setting registry value..."
-Set-ItemProperty -Path $registryPath -Name $registryValueName -Value $registryValueData -Type DWORD
 
 # Add read permissions for "Everyone" group
 Write-Output "Granting read permissions..."
@@ -68,8 +60,6 @@ $acl.AddAccessRule($ruleSID)
 Set-Acl -Path $registryPath -AclObject $acl
 
 Start-Process "$env:SystemRoot\system32\ClipRenew.exe"
-
-Write-Output "Remediation complete."
 ```
 
 # Import into Intune
