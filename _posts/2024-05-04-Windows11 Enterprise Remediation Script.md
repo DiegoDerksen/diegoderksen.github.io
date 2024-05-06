@@ -22,16 +22,13 @@ Let's dive into the detect and remediate scripts. Just copy-paste this and save 
 ## Windows-Enterprise-or-pro-Detect.ps1
 
 ```powershell
-# Define the registry key path
-$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MfaRequiredInClipRenew"
-
-# Check if the registry key already exists
-if (Test-Path -Path $registryPath) {
-    Write-Output "Registry key exists. No changes needed."
-    exit 0
+$WindowsSKU = (Get-WmiObject Win32_OperatingSystem).OperatingSystemSKU
+if ($WindowsSKU -eq 4) {
+Write-Output "Windows edition is Enterprise"
+Exit 0
 } else {
-    Write-Output "Registry key does not exist."
-    exit 1
+Write-Output "Windows edition is not Enterprise"
+Exit 1
 }
 ```
 
