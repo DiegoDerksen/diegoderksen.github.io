@@ -54,14 +54,10 @@ This will be a series on enabling automatic updates for various web browsers. [C
 1. Go to Configuration profiles and create a new policy
 1. By platform choose "Windows 10 and later" and profile type "Templates" followed by template name: "Imported Administrative templates (Preview)"
 1. Pick a name for the policy
-1. on the Configuration Settings tab, search for:
-
-  - "**Application Autoupdate**" and set this to enabled  
-
-  - "**Background updater**" and set this to enabled  
-
-  - "**Extension Update**" and set this to enabled  
-
+1. on the Configuration Settings tab, search for:  
+    - "**Application Autoupdate**" and set this to enabled 
+    - "**Background updater**" and set this to enabled  
+    - "**Extension Update**" and set this to enabled  
 1. Choose a scope tag if you use them
 1. Assign the policy to users and create the policy.
 
