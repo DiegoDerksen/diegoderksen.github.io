@@ -22,13 +22,23 @@ Let's dive into the detect and remediate scripts. Just copy-paste this and save 
 ## Windows-Enterprise-or-pro-Detect.ps1
 
 ```powershell
-$WindowsSKU = (Get-WmiObject Win32_OperatingSystem).OperatingSystemSKU
-if ($WindowsSKU -eq 4) {
-Write-Output "Windows edition is Enterprise"
-Exit 0
+# Define registry key path and values
+$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MfaRequiredInClipRenew"
+$registryValueName = "Verify Multifactor Authentication in ClipRenew"
+$expectedRegistryValueData = 0
+
+if (Test-Path -Path $registryPath) {
+    $currentRegistryValue = (Get-ItemProperty -Path $registryPath -Name $registryValueName).$registryValueName
+    if ($currentRegistryValue -eq $expectedRegistryValueData) {
+        Write-Output "Remediation successful: Registry key exists and value matches expected value."
+        Exit 0
+    } else {
+        Write-Output "Remediation failed: Registry key exists but value does not match expected value."
+        Exit 1
+    }
 } else {
-Write-Output "Windows edition is not Enterprise"
-Exit 1
+    Write-Output "Remediation failed: Registry key does not exist."
+    Exit 1
 }
 ```
 
@@ -61,6 +71,16 @@ Set-Acl -Path $registryPath -AclObject $acl
 Start-Process "$env:SystemRoot\system32\ClipRenew.exe"
 ```
 
+# Create a filter
+1. Go to https://intune.microsoft.com
+2. Go to Tentnat Administration
+3. Go to filters
+4. Create a new filter with the following syntax:
+
+```
+(device.osVersion -startsWith "10.0.22631.3447") and (device.deviceOwnership -eq "Corporate") and (device.operatingSystemSKU -in ["Professional"])
+```
+
 # Import into Intune
 
 1. Go to https://intune.microsoft.com
@@ -72,4 +92,7 @@ Start-Process "$env:SystemRoot\system32\ClipRenew.exe"
     - Run this script using the logged-on credentials: **No**
     - Enforce script signature check: **No**
     - Run script in 64-bit Powershell: **Yes**
-1. Be sure to set **"once"** at assignments
+1. Be sure to use a device group and apply the filter from above as Include
+1. Schedule should be set to **Once**
+
+New devices will be immediately upgraded to Enterprise. Current pro devices will be upgraded to Enterprise after a restart.
