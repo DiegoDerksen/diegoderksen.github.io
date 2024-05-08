@@ -1,6 +1,6 @@
 ---
 title: "Post: Intune Auto-Update Mozilla Firefox"
-last_modified_at: 2024-05-08T18:00:00
+last_modified_at: 2024-05-08T18:10:00
 categories:
   - Blog
 tags:
@@ -33,8 +33,7 @@ This will be a series on enabling automatic updates for various web browsers. [C
 
     It should look like this:
 
-    ![MozillaADMX](/assets/images/Intune-Auto-Update-Browsers/Firefox/)
-
+    ![MozillaADMX](/assets/images/Intune-Auto-Update-Browsers/Firefox/Mozilla%20ADMX%20import.png)
   
 
 ## Firefox ADMX Import:
@@ -45,7 +44,7 @@ This will be a series on enabling automatic updates for various web browsers. [C
 
     It should look like this:
 
-    ![FirefoxADMX](/assets/images/Intune-Auto-Update-Browsers/Firefox/)
+    ![FirefoxADMX](/assets/images/Intune-Auto-Update-Browsers/Firefox/Firefox%20ADMX%20import.png)
 
 ## Device configuration:
 
