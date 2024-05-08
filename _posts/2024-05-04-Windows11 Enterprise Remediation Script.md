@@ -19,7 +19,7 @@ Microsoft's product team is already alerted of this issue and it will be fixed i
 
 Let's dive into the detect and remediate scripts. Just copy-paste this and save as a Powershell script.
 
-## Windows-Enterprise-or-pro-Detect.ps1
+## ClipRenewRegKey-Detect.ps1
 
 ```powershell
 # Define registry key path and values
