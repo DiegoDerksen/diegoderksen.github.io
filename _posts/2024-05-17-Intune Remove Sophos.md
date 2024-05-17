@@ -1,5 +1,5 @@
 ---
-title: "Post: Remove Sophos Endpoint Central with Intune"
+title: "Post: Remove Sophos Endpoint with Intune"
 last_modified_at: 2024-05-17T11:00:00
 categories:
   - Blog
@@ -17,12 +17,13 @@ Managing security software across an organization's fleet of devices can be a co
 ## Turn off Tamper Protection
 1. In Sophos Central, click My Products > General Settings.
 1. Under General, click  Tamper Protection.
-1. Move the slider to the left to turn off tamper protection, then click Save. 
+1. Move the slider to the left to turn off tamper protection, then click Save.
+
 ## Create a batch file
 
 1. Open Notepad
 1. Copy and paste the following command: `"C:\Program Files\Sophos\Sophos Endpoint Agent\SophosUninstall.exe" --quiet`
-1. Create a new folder and save as "Uninstall_Sophos.bat"
+1. Create a new folder and save as `Uninstall_Sophos.bat`
 
 ## Package
 1. Open the Win32 Content Prep Tool
@@ -36,8 +37,8 @@ Managing security software across an organization's fleet of devices can be a co
 1. Go to Apps > Windows
 1. Click on Add > Windows app (Win32)
 1. Add the created .intunewin file and enter the information
-1. In step enter the following install/uninstall command: `Uninstall_Sophos.bat`
-1. You can choose the requirements
+1. In the next step enter the following install/uninstall command: `Uninstall_Sophos.bat`
+1. You can choose your own requirements
 1. Detection rule should be: 
     - Rule type: File
    - Path: %ProgramFiles%\Sophos\Sophos UI
