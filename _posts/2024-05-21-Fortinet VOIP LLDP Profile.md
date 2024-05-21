@@ -62,9 +62,9 @@ end
 ```
 
 In this configuration: 
-- set status enable turns on the MED network policy for voice.
-- set vlan-intf VOICE sets the VLAN interface for voice traffic. Ensure "VOICE" is the correct VLAN interface configured on your Fortinet device.
-- set dscp 46 sets the DSCP (Differentiated Services Code Point) value for voice traffic, ensuring quality of service (QoS) prioritization.
+- `set status enable` turns on the MED network policy for voice.
+- `set vlan-intf VOICE` sets the VLAN interface for voice traffic. Ensure "VOICE" is the correct VLAN interface configured on your Fortinet device.
+- `set dscp 46 sets the DSCP` (Differentiated Services Code Point) value for voice traffic, ensuring quality of service (QoS) prioritization.
 
 ## 5. Verify Configuration
 Once you've configured the LLDP profile, it's crucial to verify the settings to ensure everything is correctly applied. Use the following command to display the LLDP profile settings:
