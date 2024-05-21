@@ -7,7 +7,7 @@ tags:
   - Fortinet
 ---
 
-## Leveraging LLDP Profiles for Voice Devices on Fortinet: A Guide for Yealink Phones
+# Leveraging LLDP Profiles for Voice Devices on Fortinet: A Guide for Yealink Phones
 
 As businesses grow, so does the complexity of their network infrastructure. Voice over IP (VoIP) devices, like Yealink phones, are a critical component of modern office communication systems. Efficiently managing these devices on your network ensures reliable performance and seamless operation. One way to achieve this is by using Link Layer Discovery Protocol (LLDP) profiles on Fortinet devices.
 
@@ -27,15 +27,15 @@ When applied to voice devices like Yealink phones, LLDP can:
 - FortiSwitch
 - CLI access
 
-### Step-by-Step Configuration
+# Step-by-Step Configuration
 
 Let's dive into the specific commands needed to create and configure an LLDP profile on a Fortinet switch controller for Yealink phones. Be sure to already have 2 VLAN's. One for DATA and one for VOICE. 
 
-#### 1. Access the Fortinet CLI
+## 1. Access the Fortinet CLI
 
 To configure the LLDP profile, you'll need to access the Fortinet CLI. 
 
-#### 2. Create a New LLDP Profile
+## 2. Create a New LLDP Profile
 
 First, navigate to the switch-controller LLDP profile configuration:
 
@@ -47,12 +47,12 @@ Next, create a new LLDP profile or edit an existing one. In this example, we'll 
 edit standard
 ```
 
-#### 3. Configure LLDP Settings
+## 3. Configure LLDP Settings
 Set the LLDP profile to disable automatic inter-switch link (ISL) detection:
 ```shell
 set auto-isl disable
 ```
-#### 4. Configure MED Network Policy for Voice
+## 4. Configure MED Network Policy for Voice
 We need to create a Media Endpoint Discovery (MED) network policy specifically for voice. This helps the network identify and configure voice devices correctly.
 ```shell
 config med-network-policy
@@ -69,7 +69,7 @@ In this configuration:
 - set vlan-intf VOICE sets the VLAN interface for voice traffic. Ensure "VOICE" is the correct VLAN interface configured on your Fortinet device.
 - set dscp 46 sets the DSCP (Differentiated Services Code Point) value for voice traffic, ensuring quality of service (QoS) prioritization.
 
-#### 5. Verify Configuration
+## 5. Verify Configuration
 Once you've configured the LLDP profile, it's crucial to verify the settings to ensure everything is correctly applied. Use the following command to display the LLDP profile settings:
 ```shell
 get switch-controller lldp-profile
