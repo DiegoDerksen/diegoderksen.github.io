@@ -6,9 +6,6 @@ categories:
 tags:
   - Fortinet
 ---
-
-# Leveraging LLDP Profiles for Voice Devices on Fortinet: A Guide for Yealink Phones
-
 As businesses grow, so does the complexity of their network infrastructure. Voice over IP (VoIP) devices, like Yealink phones, are a critical component of modern office communication systems. Efficiently managing these devices on your network ensures reliable performance and seamless operation. One way to achieve this is by using Link Layer Discovery Protocol (LLDP) profiles on Fortinet devices.
 
 In this post, I'll walk you through configuring an LLDP profile specifically. We'll focus on setting up a profile that differentiates between data and voice VLANs, ensuring that VoIP devices (in my case Yealink) are properly recognized and configured.
