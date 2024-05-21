@@ -22,6 +22,11 @@ When applied to voice devices like Yealink phones, LLDP can:
 - Ensure phones are on the correct VLAN for voice traffic.
 - Improve network performance and reliability.
 
+# Prerequisites:
+- FortiGate
+- FortiSwitch
+- CLI access
+
 ### Step-by-Step Configuration
 
 Let's dive into the specific commands needed to create and configure an LLDP profile on a Fortinet switch controller for Yealink phones. Be sure to already have 2 VLAN's. One for DATA and one for VOICE. 
