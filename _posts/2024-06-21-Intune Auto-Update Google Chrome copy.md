@@ -44,8 +44,7 @@ The following tag are included in the editor:
 <th>
 ```
 
-Besides these tags, there are also a few dynamic contents:
-There are a few dynamic variables:
+Besides these tags, there are also a few dynamic contents that you can use:  
 
 | Variable name     | Token to use     | Description                                                                                                            |
 | ----------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
