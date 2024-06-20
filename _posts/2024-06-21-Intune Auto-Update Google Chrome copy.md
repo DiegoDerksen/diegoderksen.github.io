@@ -22,43 +22,43 @@ In this blog post, we will explore how to set up and take advantage of these new
 4. Choose a name and whether you want a header and footer
 5. In the next step you can create a new message template with HTML formatting:  
 
-The following tag are included in the editor:
+  The following tag are included in the editor:
 
-```HTML
-<a>
-<strong>
-<b>
-<u>
-<ul>
-<li>
-<p>
-<br>
-<code>
-<table>
-<tbody>
-<tr>
-<td>
-<thread>
-<th>
-```
+  ```HTML
+  <a>
+  <strong>
+  <b>
+  <u>
+  <ul>
+  <li>
+  <p>
+  <br>
+  <code>
+  <table>
+  <tbody>
+  <tr>
+  <td>
+  <thread>
+  <th>
+  ```
 
-Besides these tags, there are also a few dynamic contents that you can use:  
+  Besides these tags, there are also a few dynamic contents that you can use:  
 
-![Table of variable content](/assets/images/Compliancy-e-mail-HTML-formatting/Table-VarCont-Tokens.png)
+  ![Table of variable content](/assets/images/Compliancy-e-mail-HTML-formatting/Table-VarCont-Tokens.png)
 
-To simplify the process, I used a What You See Is What You Get (WYSIWYG) HTML editor, such as [WYSIWYG HTML Editor](https://wysiwyghtml.com/). 
+  To simplify the process, I used a What You See Is What You Get (WYSIWYG) HTML editor, such as [WYSIWYG HTML Editor](https://wysiwyghtml.com/). 
 
-This tool is incredibly helpful, especially if you don't have any prior experience with HTML. After all, who doesn’t appreciate making things easier? If you want to use the variable content just use the token and paste it inside the HTML formatted text. You can even add links to the mail.
+  This tool is incredibly helpful, especially if you don't have any prior experience with HTML. After all, who doesn’t appreciate making things easier? If you want to use the variable content just use the token and paste it inside the HTML formatted text. You can even add links to the mail.
 
-I have the following example, with a link:
+  I have the following example, with a link:
 
-```HTML
-<p>Dear UserNameToken,</p>
-<p>Our system indicates that the following device: DeviceNameToken currently does not comply with our company policy. If you do not follow up on this email, it will affect the proper functioning of the device.</p>
-<p>The alert in our system can have various causes: missing software updates, security settings that do not meet the standard, or the device not being turned on for an extended period.</p>
-<p>If you cannot resolve the issue yourself, please contact the IT Service Desk or register a ticket in the <a href="https://LinktoTicketSystem.com">ticket system</a>.</p>
-<p><br />Kind regards,</p>
-```
+  ```HTML
+  <p>Dear UserNameToken,</p>
+  <p>Our system indicates that the following device: DeviceNameToken currently does not comply with our company policy. If you do not follow up on this email, it will affect the proper functioning of the device.</p>
+  <p>The alert in our system can have various causes: missing software updates, security settings that do not meet the standard, or the device not being turned on for an extended period.</p>
+  <p>If you cannot resolve the issue yourself, please contact the IT Service Desk or register a ticket in the <a href="https://LinktoTicketSystem.com">ticket system</a>.</p>
+  <p><br />Kind regards,</p>
+  ```
 
 6. Review and save the template. You can then add this template to a compliancy policy in the “Actions for noncompliance” section.  
 
