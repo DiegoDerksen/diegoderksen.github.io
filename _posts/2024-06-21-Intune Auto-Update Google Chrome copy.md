@@ -60,7 +60,7 @@ I have the following example, with a link:
 <p><br />Kind regards,</p>
 ```
 
-If you're finished with the temaplte, you can save it. After this you can then add this template to a compliancy policy in the “Actions for noncompliance” section.  
+If you're finished with the template, you can save it. After this you can then add this template to a compliancy policy in the “Actions for noncompliance” section.  
 
 Here is an example of the template:
 ![Template example](/assets/images/Compliancy-e-mail-HTML-formatting/HTML_Formatting_Example_email.png)
