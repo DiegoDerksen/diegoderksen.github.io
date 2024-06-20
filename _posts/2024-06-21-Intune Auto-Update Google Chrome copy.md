@@ -20,9 +20,7 @@ In this blog post, we will explore how to set up and take advantage of these new
 2. Go to Devices > Compliance
 3. Click in the top of the menu on "Notifications" and create a new notifcation
 4. Choose a name and whether you want a header and footer
-5. In the next step you can create a new message template with HTML formatting
-
-## HTML Formatting
+5. In the next step you can create a new message template with HTML formatting:  
 
 The following tag are included in the editor:
 
@@ -46,14 +44,7 @@ The following tag are included in the editor:
 
 Besides these tags, there are also a few dynamic contents that you can use:  
 
-| Variable name     | Token to use     | Description                                                                                                            |
-| ----------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| User name         | {{UserName}}     | Add the name of the primary user for the noncompliant device.  <br>Example: `John Doe`                                 |
-| Device name       | {{DeviceName}}   | Add the name of the noncompliant device as it's recorded in Microsoft Intune.  <br>Example: `John's iPad`              |
-| Device ID         | {{DeviceId}}     | Add the Intune device ID that belongs to the noncompliant device.  <br>Example: `12ab345c-6789-def0-1234-000000000000` |
-| Device OS version | {{OSAndVersion}} | Add the operating system and version of the noncompliant device.  <br>Example: `Android 12`                            |
-
-
+![Table of variable content](/assets/images/Compliancy-e-mail-HTML-formatting/Table-VarCont-Tokens.png)
 
 To simplify the process, I used a What You See Is What You Get (WYSIWYG) HTML editor, such as [WYSIWYG HTML Editor](https://wysiwyghtml.com/). 
 
@@ -62,23 +53,19 @@ This tool is incredibly helpful, especially if you don't have any prior experien
 I have the following example, with a link:
 
 ```HTML
-<p>Dear {{UserName}},</p>
-<p>Our system indicates that the following device: {{DeviceName}} currently does not comply with our company policy. If you do not follow up on this email, it will affect the proper functioning of the device.</p>
+<p>Dear UserNameToken,</p>
+<p>Our system indicates that the following device: DeviceNameToken currently does not comply with our company policy. If you do not follow up on this email, it will affect the proper functioning of the device.</p>
 <p>The alert in our system can have various causes: missing software updates, security settings that do not meet the standard, or the device not being turned on for an extended period.</p>
 <p>If you cannot resolve the issue yourself, please contact the IT Service Desk or register a ticket in the <a href="https://LinktoTicketSystem.com">ticket system</a>.</p>
 <p><br />Kind regards,</p>
 ```
 
-6. Review and save the template.
-
-
-You can then add this template to a compliancy policy in the "Actions for noncompliance" section.
-
+6. Review and save the template. You can then add this template to a compliancy policy in the “Actions for noncompliance” section.  
 
 Here is an example of the template:
 ![Template example](/assets/images/Compliancy-e-mail-HTML-formatting/HTML_Formatting_Example_email.png)
 
-**Info Notice:** There is no ((Device Name)) from the dynamic content since it's a preview mail.
+**Info Notice:** There is no {{Device Name}} from the dynamic content since it's a preview mail.
 {: .notice--info}
 
 # Conclusion
