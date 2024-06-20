@@ -65,7 +65,7 @@ If you're finished with the template, you can save it. After this you can then a
 Here is an example of the template:
 ![Template example](/assets/images/Compliancy-e-mail-HTML-formatting/HTML_Formatting_Example_email.png)
 
-**Info Notice:** There is no {{Device Name}} from the dynamic content since it's a preview mail.
+**Info Notice:** There is no Device Name from the dynamic content since it's a preview mail.
 {: .notice--info}
 
 # Conclusion
