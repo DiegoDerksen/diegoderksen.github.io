@@ -7,7 +7,7 @@ tags:
   - Intune
 ---
 
-Sometimes, Microsoft comes with updates that aren't getting the attention it deserves. This is one of them. They have recently improved the HTML formatting for compliance messages within Intune. This update brings a cleaner, more structured look to these messages by introducing features such as paragraphs and variable content, including user names, device names, and OS versions.
+Sometimes, Microsoft releases updates that aren't getting the attention it deserves. This is one of them. They have recently improved the HTML formatting for compliance messages within Intune. This update brings a cleaner, more structured look to these messages by introducing features such as paragraphs and variable content, including user names, device names, and OS versions.
 
 In this blog post, we will explore how to set up and take advantage of these new HTML formatting features in Intune to ensure your compliance messages are not only more readable but also more informative. Let's dive into the details!
 
@@ -73,5 +73,3 @@ Here is an example of the template:
 The recent improvement to HTML formatting for compliance messages in Intune is working amazing. This update significantly enhances the readability and informativeness of compliance messages by introducing structured HTML features and dynamic content variables.
 
 By following the steps outlined in this blog post, you can easily set up and leverage these new HTML formatting features in Intune. From creating message templates to using a WYSIWYG HTML editor for convenience, we've covered all you need to know to make your compliance messages more effective and user-friendly.
-
-Incorporating these enhancements will ensure your messages are clear, personalized, and actionable, ultimately contributing to better compliance and smoother operations within your organization.
