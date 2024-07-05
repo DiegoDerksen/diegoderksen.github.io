@@ -62,6 +62,7 @@ if ($procOutput -is [array]) {
     }
 }
 ```
+
 3. Create another text file, name it `uninstall.ps1`, copy-paste the following and change the *WingetAppID*:
 
 ```powershell
@@ -135,7 +136,7 @@ You have now created a Intunewin file. This can be uploaded to Intune
 **Single App upgrade**  
 Detection:
 
-```Powershell
+```powershell
 $app_2upgrade = "WingetAppID"
 
 $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
@@ -171,7 +172,7 @@ try{
 
 Detection:
 
-```Powershell
+```powershell
 $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
 
 if ($(&$winget upgrade) -gt 3) {
@@ -186,7 +187,7 @@ else {
 
 Remediate:
 
-```Powershell
+```powershell
 try{
     $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
 
