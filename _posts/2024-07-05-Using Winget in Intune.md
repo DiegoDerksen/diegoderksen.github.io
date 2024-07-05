@@ -26,81 +26,81 @@ I'll be using Firefox as an example
 1. Create a new folder (e.g C:\WingetPackages\Firefox)
 2. Create a new text file, name it `Install.ps1`, copy-paste the following and change the *WingetAppID*:
 
-```powershell
-$packageId = "WingetAppID"
-$action = "install"
+    ```powershell
+    $packageId = "WingetAppID"
+    $action = "install"
 
-Function Get-WingetCmd {
-    $WingetCmd = $null
-    # Get WinGet Path
+    Function Get-WingetCmd {
+        $WingetCmd = $null
+        # Get WinGet Path
 
-    try {
-        # Get Admin Context Winget Location
-        $WingetInfo = (Get-Item "$env:ProgramFiles\WindowsApps\Microsoft.DesktopAppInstaller_*_8wekyb3d8bbwe\winget.exe").VersionInfo | Sort-Object -Property FileVersionRaw
-        # if multiple versions, pick most recent one
-        $WingetCmd = $WingetInfo[-1].FileName
-    }
-    catch {
-        # Get User context Winget Location
-        if (Test-Path "$env:LocalAppData\Microsoft\WindowsApps\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\winget.exe") {
-            $WingetCmd = "$env:LocalAppData\Microsoft\WindowsApps\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\winget.exe"
-        } else {
-            Write-Host "winget not detected"
-            Exit 1
+        try {
+            # Get Admin Context Winget Location
+            $WingetInfo = (Get-Item "$env:ProgramFiles\WindowsApps\Microsoft.DesktopAppInstaller_*_8wekyb3d8bbwe\winget.exe").VersionInfo | Sort-Object -Property FileVersionRaw
+         # if multiple versions, pick most recent one
+            $WingetCmd = $WingetInfo[-1].FileName
         }
+      catch {
+            # Get User context Winget Location
+          if (Test-Path "$env:LocalAppData\Microsoft\WindowsApps\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\winget.exe") {
+            $WingetCmd = "$env:LocalAppData\Microsoft\WindowsApps\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\winget.exe"
+         } else {
+                Write-Host "winget not detected"
+              Exit 1
+         }
+     }
+        Write-Host "Winget location: $WingetCmd"
+        return $WingetCmd
     }
-    Write-Host "Winget location: $WingetCmd"
-    return $WingetCmd
-}
 
-$procOutput = & $(Get-WingetCmd) $action "--id" $packageId "--source" "winget" "--silent" "--accept-package-agreements" "--accept-source-agreements" "--disable-interactivity" "--scope" "machine"
-if ($procOutput -is [array]) {
-    $lastRow = $procOutput[$procOutput.Length - 1]
-    if ($lastRow.Contains("installed")) {
-        Write-Host "Package $packageId v$version installed successfully"
-        Exit 0
+    $procOutput = & $(Get-WingetCmd) $action "--id" $packageId "--source" "winget" "--silent" "--accept-package-agreements" "--accept-source-agreements" "--disable-interactivity" "--scope" "machine"
+    if ($procOutput -is [array]) {
+     $lastRow = $procOutput[$procOutput.Length - 1]
+     if ($lastRow.Contains("installed")) {
+          Write-Host "Package $packageId v$version installed successfully"
+         Exit 0
+      }
     }
-}
-```
+    ```
 
 3. Create another text file, name it `uninstall.ps1`, copy-paste the following and change the *WingetAppID*:
 
-```powershell
-$packageId = "WingetAppID"
-$action = "uninstall"
+    ```powershell
+    $packageId = "WingetAppID"
+    $action = "uninstall"
 
-Function Get-WingetCmd {
-    $WingetCmd = $null
-    # Get WinGet Path
+    Function Get-WingetCmd {
+        $WingetCmd = $null
+        # Get WinGet Path
 
-    try {
-        # Get Admin Context Winget Location
-        $WingetInfo = (Get-Item "$env:ProgramFiles\WindowsApps\Microsoft.DesktopAppInstaller_*_8wekyb3d8bbwe\winget.exe").VersionInfo | Sort-Object -Property FileVersionRaw
-        # if multiple versions, pick most recent one
-        $WingetCmd = $WingetInfo[-1].FileName
-    }
-    catch {
-        # Get User context Winget Location
-        if (Test-Path "$env:LocalAppData\Microsoft\WindowsApps\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\winget.exe") {
+      try {
+         # Get Admin Context Winget Location
+         $WingetInfo = (Get-Item "$env:ProgramFiles\WindowsApps\Microsoft.DesktopAppInstaller_*_8wekyb3d8bbwe\winget.exe").VersionInfo | Sort-Object -Property FileVersionRaw
+         # if multiple versions, pick most recent one
+         $WingetCmd = $WingetInfo[-1].FileName
+      }
+     catch {
+            # Get User context Winget Location
+            if (Test-Path "$env:LocalAppData\Microsoft\WindowsApps\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\winget.exe") {
             $WingetCmd = "$env:LocalAppData\Microsoft\WindowsApps\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\winget.exe"
-        } else {
-            Write-Host "winget not detected"
-            Exit 1
-        }
+         } else {
+             Write-Host "winget not detected"
+             Exit 1
+         }
+       }
+        Write-Host "Winget location: $WingetCmd"
+        return $WingetCmd
     }
-    Write-Host "Winget location: $WingetCmd"
-    return $WingetCmd
-}
 
-$procOutput = & $(Get-WingetCmd) $action "--id" $packageId "--source" "winget" "--silent" "--accept-source-agreements" "--disable-interactivity" "--scope" "machine"
-if ($procOutput -is [array]) {
-    $lastRow = $procOutput[$procOutput.Length - 1]
-    if ($lastRow.Contains("uninstalled")) {
-        Write-Host "Package $packageId uninstalled successfully"
-        Exit 0
+    $procOutput = & $(Get-WingetCmd) $action "--id" $packageId "--source" "winget" "--silent" "--accept-source-agreements" "--disable-interactivity" "--scope" "machine"
+    if ($procOutput -is [array]) {
+     $lastRow = $procOutput[$procOutput.Length - 1]
+      if ($lastRow.Contains("uninstalled")) {
+          Write-Host "Package $packageId uninstalled successfully"
+          Exit 0
+       }
     }
-}
-```
+    ```
 4. Open the Win32 Prep Tool and paste the path where the scripts are (in my case C:\WingetPackages\Firefox)
 5. The setup file is `install.ps1`
 6. You can choose the path of the output
@@ -122,9 +122,11 @@ You have now created a Intunewin file. This can be uploaded to Intune
     %windir%\sysnative\windowspowershell\v1.0\powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File uninstall.ps1
     ```
 6. You can choose your own requirements
-7. You can choose your own detection rules. I will use the detection rule "file" with the path `C:\Program Files\Mozilla Firefox\` and file or folder `Firefox.exe` - File or folder exists  
+7. You can choose your own detection rules. I will use the detection rule "file" with the path `C:\Program Files\Mozilla Firefox\` and file or folder `Firefox.exe` - File or folder exists
+
 **Info Notice:** I wouldn't choose a version because Winget can auto-update.
 {: .notice--info}
+
 8. Click next and assign to users and finish the deployment.
 
 
@@ -136,37 +138,37 @@ You have now created a Intunewin file. This can be uploaded to Intune
 **Single App upgrade**  
 Detection:
 
-```powershell
-$app_2upgrade = "WingetAppID"
+    ```powershell
+    $app_2upgrade = "WingetAppID"
 
-$Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
+    $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
 
-if ($(&$winget upgrade) -like "* $app_2upgrade *") {
+    if ($(&$winget upgrade) -like "* $app_2upgrade *") {
 	Write-Host "Upgrade available for: $app_2upgrade"
 	exit 1 # upgrade available, remediation needed
-}
-else {
-		Write-Host "No Upgrade available"
-		exit 0 # no upgrade, no action needed
-}
-```
+    }
+    else {
+    		Write-Host "No Upgrade available"
+	    	exit 0 # no upgrade, no action needed
+    }
+    ``` 
 Remediate:
 
 ```powershell
-app_2upgrade = "WingetAppID"
+    app_2upgrade = "WingetAppID"
 
-try{
-    $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
+    try{
+        $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
 
-    # upgrade command
-    &$winget upgrade --exact $app_2upgrade --silent --force --accept-package-agreements --accept-source-agreements
-    exit 0
+        # upgrade command
+        &$winget upgrade --exact $app_2upgrade --silent --force --accept-package-agreements --accept-source-agreements
+       exit 0
 
-}catch{
-    Write-Error "Error while installing upgarde for: $app_2upgrade"
-    exit 1
-}
-```
+    }catch{
+        Write-Error "Error while installing upgarde for: $app_2upgrade"
+       exit 1
+    }
+ ```
 
 **Upgrade all apps**
 
@@ -188,18 +190,18 @@ else {
 Remediate:
 
 ```powershell
-try{
-    $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
+    try{
+      $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
 
-    # upgrade command for ALL
-    &$Winget upgrade --all #--query "" --silent --accept-package-agreements --accept-source-agreements
+      # upgrade command for ALL
+       &$Winget upgrade --all #--query "" --silent --accept-package-agreements --accept-source-agreements
 
-    exit 0
+      exit 0
 
-}catch{
-    Write-Error "Error while installing upgarde for: $app_2upgrade"
-    exit 1
-}
+    }catch{
+        Write-Error "Error while installing upgarde for: $app_2upgrade"
+        exit 1
+    }
 ```
 
 4. Assign to users, and set the interval (i.e. Daily or hourly)
