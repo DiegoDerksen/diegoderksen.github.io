@@ -17,8 +17,8 @@ Join me as we delve into these practical solutions that will help you harness th
 
 - Make sure that the [following Microsoft Store package](https://apps.microsoft.com/detail/9nblggh4nns1?activetab=pivot%3Aoverviewtab&hl=en-us&gl=US#activetab=pivot:overviewtab) is installed: 
 - If you want to use remediation scripts to update apps, be sure to have a Windows 10/11 Enterprise E3 or E5 (included in Microsoft 365 F3, E3, or E5) license
-- To find the Winget AppID, use Winget.run
-- Whttps://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool
+- To find the Winget AppID, use [Winget.run](https://winget.run/)
+- [Win32 Prep Tool](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool)
 
 # Steps:
 I'll be using Firefox as an example
@@ -139,12 +139,12 @@ You have now created a Intunewin file. This can be uploaded to Intune
 Detection:
 
     ```powershell
-    $app_2upgrade = "WingetAppID"
+    $app_upgrade = "WingetAppID"
 
     $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
 
-    if ($(&$winget upgrade) -like "* $app_2upgrade *") {
-	Write-Host "Upgrade available for: $app_2upgrade"
+    if ($(&$winget upgrade) -like "* $app_upgrade *") {
+	Write-Host "Upgrade available for: $app_upgrade"
 	exit 1 # upgrade available, remediation needed
     }
     else {
@@ -155,17 +155,17 @@ Detection:
 Remediate:
 
 ```powershell
-    app_2upgrade = "WingetAppID"
+    app_upgrade = "WingetAppID"
 
     try{
         $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
 
         # upgrade command
-        &$winget upgrade --exact $app_2upgrade --silent --force --accept-package-agreements --accept-source-agreements
+        &$winget upgrade --exact $app_upgrade --silent --force --accept-package-agreements --accept-source-agreements
        exit 0
 
     }catch{
-        Write-Error "Error while installing upgarde for: $app_2upgrade"
+        Write-Error "Error while installing upgarde for: $app_upgrade"
        exit 1
     }
  ```
@@ -199,7 +199,7 @@ Remediate:
       exit 0
 
     }catch{
-        Write-Error "Error while installing upgarde for: $app_2upgrade"
+        Write-Error "Error while installing upgarde for: $app_upgrade"
         exit 1
     }
 ```
@@ -210,4 +210,5 @@ Remediate:
 # Conclusiong
 
 Deploying applications through Intune with the help of Winget can significantly simplify your app management processes. By following the steps outlined in this post, you can easily create scripts for installing and uninstalling applications, and take advantage of Winget's auto-update feature to ensure your apps are always up-to-date with minimal manual intervention. The use of remediation scripts further enhances the automation capabilities, allowing for seamless maintenance of your application environment.  
+
 I hope that this post helped you!
