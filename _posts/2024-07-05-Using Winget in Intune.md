@@ -146,7 +146,7 @@ if ($(&$winget upgrade) -like "* $app_2upgrade *") {
 }
 else {
 		Write-Host "No Upgrade available"
-		exit 0 # no upgared, no action needed
+		exit 0 # no upgrade, no action needed
 }
 ```
 Remediate:
@@ -180,7 +180,7 @@ if ($(&$winget upgrade) -gt 3) {
 }
 else {
 		Write-Host "No Upgrade available"
-		exit 0 # no upgared, no action needed
+		exit 0 # no upgrade, no action needed
 }
 ```
 
