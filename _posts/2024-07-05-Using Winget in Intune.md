@@ -26,7 +26,7 @@ I'll be using Firefox as an example
 1. Create a new folder (e.g C:\WingetPackages\Firefox)
 2. Create a new text file, name it `Install.ps1`, copy-paste the following and change the *WingetAppID*:
 
-  ```powershell
+```powershell
 $packageId = "WingetAppID"
 $action = "install"
 
@@ -61,9 +61,10 @@ if ($procOutput -is [array]) {
         Exit 0
     }
 }
-  ```
-3. Create another text file, name it `uninstall.ps1`, copy-paste the following and change the *WingetAppID*::
-  ```powershell
+```
+3. Create another text file, name it `uninstall.ps1`, copy-paste the following and change the *WingetAppID*:
+
+```powershell
 $packageId = "WingetAppID"
 $action = "uninstall"
 
@@ -98,7 +99,7 @@ if ($procOutput -is [array]) {
         Exit 0
     }
 }
-  ```
+```
 4. Open the Win32 Prep Tool and paste the path where the scripts are (in my case C:\WingetPackages\Firefox)
 5. The setup file is `install.ps1`
 6. You can choose the path of the output
@@ -133,6 +134,7 @@ You have now created a Intunewin file. This can be uploaded to Intune
 3. Create a remedation script with the following scripts:  
 **Single App upgrade**  
 Detection:
+
 ```Powershell
 $app_2upgrade = "WingetAppID"
 
@@ -148,6 +150,7 @@ else {
 }
 ```
 Remediate:
+
 ```powershell
 app_2upgrade = "WingetAppID"
 
@@ -163,8 +166,11 @@ try{
     exit 1
 }
 ```
+
 **Upgrade all apps**
+
 Detection:
+
 ```Powershell
 $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
 
@@ -176,8 +182,10 @@ else {
 		Write-Host "No Upgrade available"
 		exit 0 # no upgared, no action needed
 }
-````
+```
+
 Remediate:
+
 ```Powershell
 try{
     $Winget = Get-ChildItem -Path (Join-Path -Path (Join-Path -Path $env:ProgramFiles -ChildPath "WindowsApps") -ChildPath "Microsoft.DesktopAppInstaller*_x64*\winget.exe")
@@ -191,7 +199,8 @@ try{
     Write-Error "Error while installing upgarde for: $app_2upgrade"
     exit 1
 }
-````
+```
+
 4. Assign to users, and set the interval (i.e. Daily or hourly)
 
 
