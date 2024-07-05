@@ -124,8 +124,8 @@ You have now created a Intunewin file. This can be uploaded to Intune
 6. You can choose your own requirements
 7. You can choose your own detection rules. I will use the detection rule "file" with the path `C:\Program Files\Mozilla Firefox\` and file or folder `Firefox.exe` - File or folder exists
 
-**Info Notice:** I wouldn't choose a version because Winget can auto-update.
-{: .notice--info}
+    **Info Notice:** I wouldn't choose a version because Winget can auto-update.
+    {: .notice--info}
 
 8. Click next and assign to users and finish the deployment.
 
