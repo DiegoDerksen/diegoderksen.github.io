@@ -204,7 +204,9 @@ Remediate:
     }
 ```
 
-4. Assign to users, and set the interval (i.e. Daily or hourly)
+You can now assign the remediation script to users, and set the interval (i.e. Daily or hourly).
+
+Et voila, Winget apps will get updated automagically!
 
 
 # Conclusiong
