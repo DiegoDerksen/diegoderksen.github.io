@@ -16,7 +16,7 @@
 title: Diégo Derksen blog
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Diego Derksen's blog for Microsoft Defender, Microsoft Intune, Power Automate/Logic Apps
+  Diego Derksen blog for Microsoft Defender, Microsoft Intune, Power Automate/Logic Apps
   and some hobby projects.
 github_username: diegoderksen
 minimal_mistakes_skin: air
@@ -104,13 +104,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-
-comments:
-  provider: "utterances"
-  utterances:
-    theme: "github-light" # "github-dark"
-    issue_term: "pathname"
-    label: "comment" # Optional - must be existing label.
 
 analytics:
   provider: "google-gtag"
