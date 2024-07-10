@@ -209,7 +209,7 @@ You can now assign the remediation script to users, and set the interval (i.e. D
 Et voila, Winget apps will get updated automagically!
 
 
-# Conclusiong
+# Conclusion
 
 Deploying applications through Intune with the help of Winget can significantly simplify your app management processes. By following the steps outlined in this post, you can easily create scripts for installing and uninstalling applications, and take advantage of Winget's auto-update feature to ensure your apps are always up-to-date with minimal manual intervention. The use of remediation scripts further enhances the automation capabilities, allowing for seamless maintenance of your application environment.  
 
