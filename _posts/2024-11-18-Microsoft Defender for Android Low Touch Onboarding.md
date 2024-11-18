@@ -7,8 +7,6 @@ tags:
   - Microsoft Defender
 ---
 
-# Simplify Device Setup with Low Touch Onboarding in Intune
-
 Microsoft has introduced **Low Touch Onboarding** (currently in preview) for Intune, a feature designed to streamline device setup and minimize IT intervention. By automating much of the enrollment process, it saves time, reduces effort, and significantly improves the end-user experience.
 
 In this guide, I'll walk you through how to set up Low Touch Onboarding in Intune.
