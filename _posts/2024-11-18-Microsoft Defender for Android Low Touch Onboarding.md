@@ -45,6 +45,7 @@ In the second step we need to configure a app configuration policy. This ensures
 4. Fill in the name and platform should be "Android Enterprise", Profile type should be "Fully Managed, Dedicated and Corporate-Owned Work Profile Only" and the targeted app should be "Microsoft Defender: Antivirus"
 5. Let's add the permissions: Post Notifications, External Storage (Read), External Storage (Write) and Location Access (fine). This should be set to "Auto Grant"
 6. Lets add the configuration keys: 
+
 | Configuration Key                          | Value Type | Configuration Value         |
 |--------------------------------------------|------------|-----------------------------|
 | VPN                                        | integer    | 1                           |
@@ -56,6 +57,7 @@ In the second step we need to configure a app configuration policy. This ensures
 | Anti-Phishing                              | integer    | 1                           |
 
 Push this policy to your users and save the policy.
+
 **Info Notice:** When you save the profile the "User UPN" will say it's still on "string". This is a visual bug and it is still "variable" inside the JSON editor.
 {: .notice--info}
 
