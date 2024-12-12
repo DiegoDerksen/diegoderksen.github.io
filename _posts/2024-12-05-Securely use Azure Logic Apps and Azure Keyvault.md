@@ -80,7 +80,7 @@ In this guide, I'll walk you through the process of setting up and managing Logi
 1. Go to the Key Vault and select "Networking".
 2. Click "Allow public access from specific virtual networks and IP addresses".
 3. Add the IP addresses (one by one) to the "Firewall IP ranges".
-   - If you want to manage the Key Vault via the Azure Portal, you must also whitelist your own public IP.
+   - If you want to manage the Key Vault via the Azure Portal, you must also whitelist your own public IP. To find your public IP: go to the command prompt and type in: curl ifconfig.me.
 
 ### Step 6A: Create User-Managed Identity
 
