@@ -33,7 +33,7 @@ In this guide, I'll walk you through the process of setting up and managing Logi
 3. Click "Create" and search for "Key Vault".
 4. Fill in the required information:
    - **Key vault name**: xxx-KeyVault
-   - **Region**: West Europe
+   - **Region**: YourOwnRegion
    - **Pricing tier**: Standard
    - **Purge protection**: Enabled
    - Access configuration and Networking will be addressed in later steps.
@@ -80,7 +80,6 @@ In this guide, I'll walk you through the process of setting up and managing Logi
 1. Go to the Key Vault and select "Networking".
 2. Click "Allow public access from specific virtual networks and IP addresses".
 3. Add the IP addresses (one by one) to the "Firewall IP ranges".
-4. Check "Allow trusted Microsoft services to bypass this firewall".
    - If you want to manage the Key Vault via the Azure Portal, you must also whitelist your own public IP.
 
 ### Step 6A: Create User-Managed Identity
