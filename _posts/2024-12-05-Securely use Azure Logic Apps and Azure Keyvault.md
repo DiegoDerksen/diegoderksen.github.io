@@ -8,7 +8,7 @@ tags:
   - Logic App
 ---
 
-In this guide, I'll walk you through the process of setting up and managing Logic App resources using Role-Based Access Control (RBAC) and Managed Identities. We'll cover the prerequisites, including necessary roles and app registrations for Graph API permissions to automate various administration task on Microsoft 365.
+In this guide, I'll walk you through the process of setting up and managing Logic App resources using Role-Based Access Control (RBAC) and Managed Identities. We'll also cover the prerequisites.
 
 ## Prerequisites
 
