@@ -41,9 +41,7 @@ Graph API > DeviceManagementManagedDevices.PrivilegedOperations.All
     3. Audience with value: https://graph.microsoft.com
 3. Get the certificate from Keyvault with the step "Get secret"
 4. Now we want to get all Zebra devices from Intune with a HTTP GET request. Use the following URI:
-'https://graph.microsoft.com/BETA/deviceManagement/managedDevices?$select=id,deviceName&$filter=manufacturer%20eq%20'Zebra%20Technologies' 
-'
-
+https://graph.microsoft.com/BETA/deviceManagement/managedDevices?$select=id,deviceName&$filter=manufacturer%20eq%20'Zebra%20Technologies' 
 Also be sure to use Authentication Type as Active Directory OAuth and use dynamic content to put in the 3 variables you've created earlier. The use Credential Type as Certificate and use the Value from the "Get secret" setp as dynamic content with password as expression "Null"
  ![HTTP GET all zebra devices.png](/assets/images/LogicApps/HTTP%20GET%20all%20zebra%20devices.png)
 5. Create a new step as "Parse JSON". Content should be the body from step 4 and use the following sample payload:  
