@@ -40,7 +40,10 @@ Graph API > DeviceManagementManagedDevices.PrivilegedOperations.All
     2. TenantID from Entra
     3. Audience with value: https://graph.microsoft.com
 3. Get the certificate from Keyvault with the step "Get secret"
-4. Now we want to get all Zebra devices from Intune with a HTTP GET request. Use the following URI: https://graph.microsoft.com/BETA/deviceManagement/managedDevices?$select=id,deviceName&$filter=manufacturer%20eq%20'Zebra%20Technologies'
+4. Now we want to get all Zebra devices from Intune with a HTTP GET request. Use the following URI:
+'https://graph.microsoft.com/BETA/deviceManagement/managedDevices?$select=id,deviceName&$filter=manufacturer%20eq%20'Zebra%20Technologies' 
+'
+
 Also be sure to use Authentication Type as Active Directory OAuth and use dynamic content to put in the 3 variables you've created earlier. The use Credential Type as Certificate and use the Value from the "Get secret" setp as dynamic content with password as expression "Null"
  ![HTTP GET all zebra devices.png](/assets/images/LogicApps/HTTP%20GET%20all%20zebra%20devices.png)
 5. Create a new step as "Parse JSON". Content should be the body from step 4 and use the following sample payload:  
@@ -109,8 +112,8 @@ Also be sure to use Authentication Type as Active Directory OAuth and use dynami
 6. Create a For Each with Output: `@{outputs('Parse_JSON_')?['body']?['value']}`
 7. Create a HTTP GET inside the for each loop to get the enrollment profile: `https://graph.microsoft.com/beta/deviceManagement/managedDevices/@{item()?['id']}?$select=id,enrollmentprofilename,deviceName`
  ![HTTP GET EnrollmentProfileName.png](/assets/images/LogicApps/HTTP%20GET%20EnrollmentProfileName.png)
-8. Create a new step as "Parse JSON". Content should be the body from step 7 and use the following sample payload:
-    ```JSON
+8. Create a new step as "Parse JSON". Content should be the body from step 7 and use the following sample payload:  
+   ```JSON
     {
     "type": "object",
     "properties": {
@@ -171,6 +174,7 @@ Also be sure to use Authentication Type as Active Directory OAuth and use dynami
         }
     }
     }
+    ```
 9. Use a condition step. This will look at the enrollmentprofile name and if the device has not yet been renamed. Inside the condition expression use the following conditions with a AND statement: `@{body('Parse_zebra_enrollment_profile')?['enrollmentProfileName']}` is equal to YourEnrollmentProfile AND `@{item()?['deviceName']}` Does not start with TEST-ZEBRA (Change to your own naming scheme)
 10. Use a HTTP POST request inside the TRUE condition with the following URI: `https://graph.microsoft.com/beta/deviceManagement/managedDevices/@{item()?['id']}/setDeviceName` With Headers: Content-type application/json and body:  
 ` {
