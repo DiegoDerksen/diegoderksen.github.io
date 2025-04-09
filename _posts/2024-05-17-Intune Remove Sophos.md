@@ -7,47 +7,59 @@ tags:
   - Intune
 ---
 
-Managing security software across an organization's fleet of devices can be a complex task, especially when transitioning between different solutions. If you're using Microsoft Intune to manage your endpoints and have decided to remove Sophos antivirus software, you've come to the right place. This guide will walk you through the steps to efficiently and effectively uninstall Sophos from devices managed by Intune, ensuring a smooth transition and maintaining security compliance throughout your network. Whether you're switching to another antivirus solution or restructuring your cybersecurity strategy, this tutorial will help you navigate the process with ease.
+I'll guide you through removing Sophos antivirus from computers managed by Microsoft Intune. I'll show you each step to safely uninstall Sophos while keeping your devices secure.
 
-# Prerequisites
+# **Prerequisites**
+
 - [Win32 Content Prep Tool](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool)
 
-# Steps
+# **Steps**
 
-## Turn off Tamper Protection
-1. In Sophos Central, click My Products > General Settings.
-1. Under General, click  Tamper Protection.
-1. Move the slider to the left to turn off tamper protection, then click Save.
+## **Turn off Tamper Protection**
 
-## Create a batch file
+1. Open Sophos Central and click My Products > General Settings
+2. Find and click Tamper Protection under General
+3. Turn off the protection by sliding the switch left, then save your changes
 
-1. Open Notepad
-1. Copy and paste the following command: `"C:\Program Files\Sophos\Sophos Endpoint Agent\SophosUninstall.exe" --quiet`
-1. Create a new folder and save as `Uninstall_Sophos.bat`
+## **Create a batch file**
 
-## Package
-1. Open the Win32 Content Prep Tool
-1. copy and paste the folder path to the CMD window as "Source folder"
-1. Drag the .bat file as "Setup file"
-1. Specify the output of the .intunewin file
-1. Don't create a catalog folder
+1. Open Notepad on your computer
+2. Copy this command: `"C:\Program Files\Sophos\Sophos Endpoint Agent\SophosUninstall.exe" --quiet`
+3. Make a new folder and save the file as `Uninstall_Sophos.bat`
 
-## Importing into Intune
-1. Go to the Intune Portal
-1. Go to Apps > Windows
-1. Click on Add > Windows app (Win32)
-1. Add the created .intunewin file and enter the information
-1. In the next step enter the following install/uninstall command: `Uninstall_Sophos.bat`
-1. You can choose your own requirements
-1. Detection rule should be: 
+## **Create the package**
+
+1. Start the Win32 Content Prep Tool
+2. In the command window, enter your folder location as the "Source folder"
+3. Add your .bat file as the "Setup file"
+4. Choose where to save the .intunewin file
+5. Skip creating a catalog folder
+
+## **Add to Intune**
+
+1. Log into the Intune Portal
+2. Go to Apps > Windows
+3. Select Add > Windows app (Win32)
+4. Upload your .intunewin file and fill in the required information
+5. Use this command for installation/uninstallation: `Uninstall_Sophos.bat`
+6. Set up any requirements you need
+7. For detection rules, use these settings:
     - Rule type: File
-   - Path: %ProgramFiles%\Sophos\Sophos UI
-   - File or folder: Sophos UI.exe
-   - Detection method: File or folder exists.
-1. Choose the Uninstall assignment and assign to users or devices.  
+    - Path: %ProgramFiles%\Sophos\Sophos UI
+    - File or folder: Sophos UI.exe
+    - Detection method: File or folder exists.
+8. Set up the uninstall assignment and choose which users or devices should get it
 
-Always test on a test device.
+🚨Always test this process on one device first before using it on all your devices.
+{: .notice--danger}
 
-# Conclusion
 
-Transitioning your organization's security software is a significant undertaking, but with the right tools and a clear process, it can be managed efficiently. By following this guide, you have learned how to remove Sophos antivirus software from devices managed by Microsoft Intune. This step-by-step approach ensures that your devices remain compliant and secure throughout the transition period. Always remember to test the process on a test device before deploying it widely to avoid any disruptions. Whether you're adopting a new antivirus solution or simply changing your cybersecurity strategy, this guide provides a solid foundation to ensure a smooth and effective migration. By leveraging Intune’s capabilities, you can maintain a secure and well-managed network environment.
+# **Conclusion**
+
+Follow these steps carefully to remove Sophos from your devices. Remember to test everything on one device first to avoid any problems across your network.
+
+*Read more:*
+
+[Diégo Derksen Tech Blog](https://www.notion.so/Di-go-Derksen-Tech-Blog-19d1da87a383806289eadb30cdd0b3e1?pvs=21)
+
+[Untitled](Untitled%2019d1da87a383801c902ad702a49db73a.csv)
