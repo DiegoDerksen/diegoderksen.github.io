@@ -1,5 +1,5 @@
 ---
-title: "Post: Intune Auto-Update Google Chrome"
+title: "Intune Auto-Update Google Chrome"
 last_modified_at: 2024-04-23T16:00:00
 categories:
   - Blog
