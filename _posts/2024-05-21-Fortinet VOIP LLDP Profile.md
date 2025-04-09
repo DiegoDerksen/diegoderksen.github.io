@@ -1,5 +1,5 @@
 ---
-title: "Post: Fortinet VOIP LLDP profile"
+title: "Fortinet VOIP LLDP profile"
 last_modified_at: 2024-05-21T10:00:00
 categories:
   - Blog
