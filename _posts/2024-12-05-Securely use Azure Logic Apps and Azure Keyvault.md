@@ -1,5 +1,5 @@
 ---
-title: "Post: Securely use Azure Logic Apps and Azure Keyvault"
+title: "Securely use Azure Logic Apps and Azure Keyvault"
 last_modified_at: 2024-12-05T11:00:00+02:00
 categories:
   - Blog
