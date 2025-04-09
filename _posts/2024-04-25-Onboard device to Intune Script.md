@@ -1,5 +1,5 @@
 ---
-title: "Tip: Onboard devices to Intune with script"
+title: " Onboard devices to Intune with script"
 last_modified_at: 2024-04-25T11:00:00
 categories:
   - Quick Tips
