@@ -46,10 +46,10 @@ You can also add these personalized details to your message:
 
 | Variable Name     | Token to use               |
 | ----------------- | -------------------------- |
-| User Name         | '&#123;&#123;UserName&#125;&#125;'       |
-| Device Name       | '&#123;&#123;DeviceName&#125;&#125;'     |
-| Device ID         | '&#123;&#123;DeviceId&#125;&#125;'       |
-| Device OS Version | '&#123;&#123;OSAndVersion&#125;&#125;'   |
+| User Name         | &#123;&#123;UserName&#125;&#125;       |
+| Device Name       | &#123;&#123;DeviceName&#125;&#125;     |
+| Device ID         | &#123;&#123;DeviceId&#125;&#125;       |
+| Device OS Version | &#123;&#123;OSAndVersion&#125;&#125;   |
 
 To make writing easier, I recommend using a simple HTML editor called WYSIWYG HTML Editor ([available here](https://wysiwyghtml.com/)).
 
