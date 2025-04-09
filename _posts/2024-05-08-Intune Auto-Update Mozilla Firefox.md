@@ -1,5 +1,5 @@
 ---
-title: "Post: Intune Auto-Update Mozilla Firefox"
+title: "Intune Auto-Update Mozilla Firefox"
 last_modified_at: 2024-05-08T18:00:00
 categories:
   - Blog
