@@ -23,6 +23,7 @@ minimal_mistakes_skin_dark: "dark"
 search: true
 enable_copy_code_button: true
 
+
 # Build settings
 markdown: kramdown
 repository: diegoderksen/diegoderksen.github.io
