@@ -23,7 +23,7 @@ This guide will show you how to use these new features to create better complian
 
 You can use these basic HTML tags in your message:
 
-```HTML
+```html
 <a>
 <strong>
 <b>
@@ -44,12 +44,12 @@ You can use these basic HTML tags in your message:
 
 You can also add these personalized details to your message:
 
-| Variable Name | Token to use |
-| --- | --- |
-| User Name | '{{UserName}}' |
-| Device Name | '{{DeviceName}}' |
-| Device ID | '{{DeviceId}}' |
-| Device OS Version | '{{OSAndVersion}}' |
+| Variable Name     | Token to use               |
+| ----------------- | -------------------------- |
+| User Name         | '&#123;&#123;UserName&#125;&#125;'       |
+| Device Name       | '&#123;&#123;DeviceName&#125;&#125;'     |
+| Device ID         | '&#123;&#123;DeviceId&#125;&#125;'       |
+| Device OS Version | '&#123;&#123;OSAndVersion&#125;&#125;'   |
 
 To make writing easier, I recommend using a simple HTML editor called WYSIWYG HTML Editor ([available here](https://wysiwyghtml.com/)).
 
@@ -57,7 +57,7 @@ This tool makes creating messages much easier, especially if you don't know HTML
 
 Here's a sample message you can use:
 
-```HTML
+```html
 <p>Dear {{UserName}},</p>
 <p>Our system indicates that the following device: {{DeviceName}} currently does not comply with our company policy. If you do not follow up on this email, it will affect the proper functioning of the device.</p>
 <p>The alert in our system can have various causes: missing software updates, security settings that do not meet the standard, or the device not being turned on for an extended period.</p>
