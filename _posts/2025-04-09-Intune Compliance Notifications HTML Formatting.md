@@ -54,8 +54,8 @@ You can also add these personalized details to your message:
 To make writing easier, I recommend using a simple HTML editor called WYSIWYG HTML Editor ([available here](https://wysiwyghtml.com/)).
 
 This tool makes creating messages much easier, especially if you don't know HTML. You can simply write your message and add the personalized details like &#123;&#123;UserName&#125;&#125; wherever you need them. You can even add clickable links to your message.
-Here's a sample message you can use:
-
+Here's a sample message you can use:  
+{% raw %}
 ```html
 <p>Dear {{UserName}},</p>
 <p>Our system indicates that the following device: {{DeviceName}} currently does not comply with our company policy. If you do not follow up on this email, it will affect the proper functioning of the device.</p>
@@ -64,7 +64,7 @@ Here's a sample message you can use:
 <p><br />Kind regards,</p>
 
 ```
-
+{% endraw %}  
 After you finish your template, save it. You can then use this template in any compliance policy by adding it to the "Actions for noncompliance" section.
 
 Here's what the message looks like:
