@@ -1,5 +1,5 @@
 ---
-title: "Post: Remove Sophos Endpoint with Intune"
+title: "Remove Sophos Endpoint with Intune"
 last_modified_at: 2024-05-17T11:00:00
 categories:
   - Blog
