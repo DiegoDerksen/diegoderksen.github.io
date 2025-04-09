@@ -1,5 +1,5 @@
 ---
-title: "Post: Compliancy e-mail HTML formatting"
+title: "Compliancy e-mail HTML formatting"
 last_modified_at: 2024-06-21T00:10:00
 categories:
   - Blog
