@@ -3,8 +3,10 @@ permalink: /about/
 title: "About Me"
 ---
 
-Hello! I’m Diégo Derksen, residing in the Netherlands, Utrecht. By day, I work at the Dutch Railways (NS), where I specialize in Microsoft Intune, Microsoft Defender, Microsoft Purview and Power Automate/Logic Apps. My passion lies in bridging the gap between beginners and these technologies. Through this blog, I aim to provide valuable insights and practical guidance on Microsoft 365, Intune, Defender and Purview.
+Hi, I'm Diégo - a Microsoft technology specialist based in Utrecht. At Dutch Railways (NS), I focus on security and automation, working extensively with Microsoft Intune, Defender, Purview, and Power Automate/Logic Apps.
 
-In addition to work, I’ll also share some of my IT hobby projects. Feel free to connect with me on LinkedIn!
+My goal is to demystify Microsoft technologies. Whether you're new to the field or looking to expand your knowledge, I share practical insights about Microsoft 365, Intune, Defender, and Purview in clear, accessible terms.
+
+Outside of work, I'm dedicated to exploring and testing new technologies. I document these technical explorations here, sharing both successes and learning experiences. Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/diego-derksen/)!
 
 ![MS-500 Certification](/assets/images/MS-500.png) 
