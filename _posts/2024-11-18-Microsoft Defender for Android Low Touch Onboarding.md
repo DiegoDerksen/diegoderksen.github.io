@@ -1,5 +1,5 @@
 ---
-title: "Post: Microsoft Defender for Android Low Touch Onboarding"
+title: "Microsoft Defender for Android Low Touch Onboarding"
 last_modified_at: 2024-11-18T20:00:00+02:00
 categories:
   - Blog
