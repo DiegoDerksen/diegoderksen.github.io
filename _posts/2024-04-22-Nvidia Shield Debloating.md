@@ -1,5 +1,5 @@
 ---
-title: "Post: Debloating Nvidia Shield"
+title: "Debloating Nvidia Shield"
 last_modified_at: 2024-04-22T21:00:00+02:00
 categories:
   - Blog
