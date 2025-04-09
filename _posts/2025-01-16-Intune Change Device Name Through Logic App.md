@@ -38,7 +38,7 @@ Graph API > DeviceManagementManagedDevices.Read.All (Application) Graph API > De
     2. TenantID from Entra
     3. Audience with value: https://graph.microsoft.com
 3. Get the certificate from Key Vault using the "Get secret" step
-4. Retrieve all Zebra devices from Intune with an HTTP GET request. Use this URI: 'https://graph.microsoft.com/BETA/deviceManagement/managedDevices?$select=id,deviceName&amp;$filter=manufacturer%20eq%20&#39;Zebra%20Technologies&#39;'. Set Authentication Type to Active Directory OAuth and include the 3 variables you created as dynamic content. Set Credential Type to Certificate and use the Value from the "Get secret" step as dynamic content, with password expression set to "Null"
+4. Retrieve all Zebra devices from Intune with an HTTP GET request. Use this URI: <pre><code> https://graph.microsoft.com/BETA/deviceManagement/managedDevices?$select=id,deviceName&amp;$filter=manufacturer%20eq%20'Zebra%20Technologies'</code></pre> Set Authentication Type to Active Directory OAuth and include the 3 variables you created as dynamic content. Set Credential Type to Certificate and use the Value from the "Get secret" step as dynamic content, with password expression set to "Null"
     
     ![](https://diegoderksen.github.io/assets/images/LogicApps/HTTP%20GET%20all%20zebra%20devices.png)
     
