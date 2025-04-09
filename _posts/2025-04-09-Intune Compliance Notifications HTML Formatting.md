@@ -76,6 +76,4 @@ Here's what the message looks like:
 
 # **Conclusion**
 
-The new HTML formatting in Intune is a great improvement. It helps you create clearer, better-looking compliance messages that include personalized information for each user.
-
-Using this guide, you can easily create your own message templates in Intune. Whether you use the HTML editor or write the code yourself, you now have the tools to make your compliance messages clear and user-friendly.
+The new HTML formatting in Intune is a great improvement. It helps you create clearer, better looking compliance messages that include personalized information for each user thus also less likely to be reported as "spam" by the user.
