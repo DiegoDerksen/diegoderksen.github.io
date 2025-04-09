@@ -1,5 +1,5 @@
 ---
-title: "Tip: Microsoft Defender XDR Authorization Matrix"
+title: "Microsoft Defender XDR Authorization Matrix"
 last_modified_at: 2024-11-14T12:00:00+02:00
 categories:
   - Blog
