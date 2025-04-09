@@ -14,13 +14,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Diégo Derksen blog
-email:
+email: info@diegoderksen.nl
 description: >- # this means to ignore newlines until "baseurl:"
   Hi, I am Diégo. I work at Dutch Railways, specializing in Microsoft Intune, Purview, Defender, Logic Apps and Power Automate.
 github_username: diegoderksen
 minimal_mistakes_skin: "air"
 minimal_mistakes_skin_dark: "dark"
 search: true
+enable_copy_code_button: true
 
 # Build settings
 markdown: kramdown
