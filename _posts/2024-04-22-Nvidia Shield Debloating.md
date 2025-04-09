@@ -19,8 +19,8 @@ Want to unlock the full potential of your Nvidia Shield TV? This guide will help
 
 - Open Terminal and install Homebrew`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 - Install ADB`brew install android-platform-tools`
-    
-    ### **Install ADB on Windows**
+
+  ## **Install ADB on Windows**
     
 - Download [Android SDK Platform Tools ZIP file for Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
 - Extract the contents of this ZIP file into an easily accessible folder (such as C:\platform-tools)
