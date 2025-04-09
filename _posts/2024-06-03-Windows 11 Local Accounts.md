@@ -1,5 +1,5 @@
 ---
-title: "Tip: Windows 11 Local Account"
+title: "Windows 11 Local Account"
 last_modified_at: 2024-06-03T22:00:00
 categories:
   - Blog
