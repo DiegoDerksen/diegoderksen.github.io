@@ -18,7 +18,8 @@ email:
 description: >- # this means to ignore newlines until "baseurl:"
   Hi, I am Diégo. I work at Dutch Railways, specializing in Microsoft Intune, Purview, Defender, Logic Apps and Power Automate.
 github_username: diegoderksen
-minimal_mistakes_skin: air
+minimal_mistakes_skin: "air"
+minimal_mistakes_skin_dark: "dark"
 search: true
 
 # Build settings
