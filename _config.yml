@@ -58,7 +58,7 @@ plugins:
 author:
   name   : "Diégo Derksen"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Hi, I'm Diego Derksen and I'm currently employed at the Dutch Railways. I specialize in Microsoft Intune and Defender XDR."
+  bio    : " Hi, I am Diégo. I work at Dutch Railways, specializing in Microsoft Intune, Purview, Defender, Logic Apps and Power Automate."
   links:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
