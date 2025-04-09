@@ -23,7 +23,7 @@ This guide will show you how to use these new features to create better complian
 
 You can use these basic HTML tags in your message:
 
-```
+```HTML
 <a>
 <strong>
 <b>
