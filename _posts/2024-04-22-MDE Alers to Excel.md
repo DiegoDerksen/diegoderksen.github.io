@@ -1,5 +1,5 @@
 ---
-title: "Post: Microsoft Defender for Endpoints reports to Excel"
+title: "Microsoft Defender for Endpoints reports to Excel"
 last_modified_at: 2024-04-22T21:30:00+02:00
 categories:
   - Blog
