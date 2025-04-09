@@ -53,8 +53,7 @@ You can also add these personalized details to your message:
 
 To make writing easier, I recommend using a simple HTML editor called WYSIWYG HTML Editor ([available here](https://wysiwyghtml.com/)).
 
-This tool makes creating messages much easier, especially if you don't know HTML. You can simply write your message and add the personalized details (like {{UserName}}) wherever you need them. You can even add clickable links to your message.
-
+This tool makes creating messages much easier, especially if you don't know HTML. You can simply write your message and add the personalized details like &#123;&#123;UserName&#125;&#125; wherever you need them. You can even add clickable links to your message.
 Here's a sample message you can use:
 
 ```html
