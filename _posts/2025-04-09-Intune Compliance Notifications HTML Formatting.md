@@ -46,10 +46,10 @@ You can also add these personalized details to your message:
 
 | Variable Name | Token to use |
 | --- | --- |
-| User Name | {{UserName}} |
-| Device Name | {{DeviceName}} |
-| Device ID | {{DeviceId}} |
-| Device OS Version | {{OSAndVersion}} |
+| User Name | '{{UserName}}' |
+| Device Name | '{{DeviceName}}' |
+| Device ID | '{{DeviceId}}' |
+| Device OS Version | '{{OSAndVersion}}' |
 
 To make writing easier, I recommend using a simple HTML editor called WYSIWYG HTML Editor ([available here](https://wysiwyghtml.com/)).
 
@@ -72,7 +72,7 @@ Here's what the message looks like:
 
 ![](https://diegoderksen.github.io/assets/images/Compliancy-e-mail-HTML-formatting/HTML_Formatting_Example_email.png)
 
-Note: The Device Name isn't shown here because this is just a preview.
+**Note**: The Device Name isn't shown here because this is just a preview.
 {: .notice--info}
 
 # **Conclusion**
