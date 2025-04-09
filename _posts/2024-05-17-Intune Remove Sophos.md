@@ -57,9 +57,3 @@ I'll guide you through removing Sophos antivirus from computers managed by Micro
 # **Conclusion**
 
 Follow these steps carefully to remove Sophos from your devices. Remember to test everything on one device first to avoid any problems across your network.
-
-*Read more:*
-
-[Diégo Derksen Tech Blog](https://www.notion.so/Di-go-Derksen-Tech-Blog-19d1da87a383806289eadb30cdd0b3e1?pvs=21)
-
-[Untitled](Untitled%2019d1da87a383801c902ad702a49db73a.csv)
