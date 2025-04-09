@@ -107,5 +107,5 @@ tag_archive:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "G-1J9PFS9J13"
+    tracking_id: "G-0FSMBXSFNE"
     anonymize_ip: false # default
