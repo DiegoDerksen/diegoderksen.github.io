@@ -1,5 +1,5 @@
 ---
-title: "Post: Using Winget in Intune"
+title: "Using Winget in Intune"
 last_modified_at: 2024-07-05T21:30:00+02:00
 categories:
   - Blog
