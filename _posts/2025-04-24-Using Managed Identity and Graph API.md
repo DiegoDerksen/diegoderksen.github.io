@@ -57,7 +57,7 @@ Now that we understand the benefits of managed identity, let's proceed with the 
         Connect-MgGraph -Scopes Application.Read.All, AppRoleAssignment.ReadWrite.All, RoleManagement.ReadWrite.Directory
         
         $managedIdentityId = "<Managed Identity Object ID>"
-        $roleName = "Per"
+        $roleName = "GraphAPI Placeholder Permission"
         
         $msgraph = Get-MgServicePrincipal -Filter "AppId eq '00000003-0000-0000-c000-000000000000'"
         $role = $Msgraph.AppRoles| Where-Object {$_.Value -eq $roleName} 
