@@ -51,7 +51,7 @@ Now that we understand the benefits of managed identity, let's proceed with the 
     You can find all the permission names on the following [link](https://graphpermissions.merill.net/permission/)
    {: .notice--info}
 
-     ```html
+     ```powershell
         Install-Module Microsoft.Graph -Scope CurrentUser
         
         Connect-MgGraph -Scopes Application.Read.All, AppRoleAssignment.ReadWrite.All, RoleManagement.ReadWrite.Directory
