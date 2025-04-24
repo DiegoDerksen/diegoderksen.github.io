@@ -51,7 +51,7 @@ Now that we understand the benefits of managed identity, let's proceed with the 
     You can find all the permission names on the following [link](https://graphpermissions.merill.net/permission/)
    {: .notice--info}
 
-        ```powershell
+     ```html
         Install-Module Microsoft.Graph -Scope CurrentUser
         
         Connect-MgGraph -Scopes Application.Read.All, AppRoleAssignment.ReadWrite.All, RoleManagement.ReadWrite.Directory
@@ -65,7 +65,7 @@ Now that we understand the benefits of managed identity, let's proceed with the 
         New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $managedIdentityId -PrincipalId $managedIdentityId -ResourceId $msgraph.Id -AppRoleId $role.Id
          
         Disconnect-MgGraph
-        ```
+      ```
         
     - Verify the permissions are granted in Azure AD Enterprise Applications
     
