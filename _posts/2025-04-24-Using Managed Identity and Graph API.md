@@ -47,14 +47,17 @@ Now that we understand the benefits of managed identity, let's proceed with the 
 2. Grant API permissions to the managed identity:
     - Copy the Object ID of the managed identity
     - Install and run the following PowerShell script (replacing the placeholder values):
-        
+    
+    You can find all the permission names on the following [link](https://graphpermissions.merill.net/permission/)
+        {: .notice--info}
+
         ```powershell
         Install-Module Microsoft.Graph -Scope CurrentUser
         
         Connect-MgGraph -Scopes Application.Read.All, AppRoleAssignment.ReadWrite.All, RoleManagement.ReadWrite.Directory
         
         $managedIdentityId = "<Managed Identity Object ID>"
-        $roleName = "CloudAppDiscovery.Read.All"
+        $roleName = "Per"
         
         $msgraph = Get-MgServicePrincipal -Filter "AppId eq '00000003-0000-0000-c000-000000000000'"
         $role = $Msgraph.AppRoles| Where-Object {$_.Value -eq $roleName} 
