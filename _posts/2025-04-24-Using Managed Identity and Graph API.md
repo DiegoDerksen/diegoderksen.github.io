@@ -49,7 +49,7 @@ Now that we understand the benefits of managed identity, let's proceed with the 
     - Install and run the following PowerShell script (replacing the placeholder values):
     
     You can find all the permission names on the following [link](https://graphpermissions.merill.net/permission/)
-        {: .notice--info}
+   {: .notice--info}
 
         ```powershell
         Install-Module Microsoft.Graph -Scope CurrentUser
@@ -72,7 +72,7 @@ Now that we understand the benefits of managed identity, let's proceed with the 
    Info Notice: Switch the filtering from enterprise applications to managed identity
     {: .notice--info}
 
-3. Configure your Logic App to use managed identity:
+4. Configure your Logic App to use managed identity:
     - In your HTTP action, select "Managed Identity" as authentication type
     - Choose the system-assigned managed identity
     - Set audience to "https://graph.microsoft.com”
