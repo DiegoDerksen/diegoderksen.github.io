@@ -8,9 +8,11 @@ tags:
 ---
 
 
-In today's cloud-driven world, securing your Azure Logic Apps is paramount. One of the most effective ways to handle authentication and security in Azure is through Managed Identity. This step-by-step guide will walk you through the process of setting up Azure Logic Apps with Managed Identity, providing you with a secure and maintainable solution for your automation workflows.
+Using a managed identity instead of a service principal is a smart and secure idea. For example, you won't have to keep an eye out for secrets that are getting expired and it's a lot more secure. Even if your service prinicpal uses a certificate instead of a client secret. This especially works well if you have business solutions in a Azure Logic App that needs to keep running 24/7 without having the scenario where the client secret expires and you only know it in the next morning if you don't monitor for it.
 
-We'll cover everything from creating your Logic App to implementing Managed Identity, ensuring you have a robust and secure foundation for your Azure integrations. 
+You also do not need to setup a seperate Azure Key Vault. Which saves administrative overhead. 
+
+So, all in all just use a managed identity.
 
 Before we dive into the technical setup, let's understand why you might choose managed identity over a service principal:
 
@@ -44,8 +46,8 @@ Now that we understand the benefits of managed identity, let's proceed with the 
     - Go to "Identity" under Settings
     - Switch "Status" to "On" under System assigned
     - Click "Save"
-2. Grant API permissions to the managed identity:
     - Copy the Object ID of the managed identity
+2. Grant API permissions to the managed identity:
     - Install and run the following PowerShell script (replacing the placeholder values):
     
     You can find all the permission names on the following [link](https://graphpermissions.merill.net/permission/)
