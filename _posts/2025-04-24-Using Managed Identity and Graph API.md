@@ -8,7 +8,7 @@ tags:
 ---
 
 
-Using a managed identity instead of a service principal is a smart and secure idea. For example, you won't have to keep an eye out for secrets that are getting expired and it's a lot more secure. Even if your service prinicpal uses a certificate instead of a client secret. This especially works well if you have business solutions in a Azure Logic App that needs to keep running 24/7 without having the scenario where the client secret expires and you only know it in the next morning if you don't monitor for it.
+Using a managed identity instead of a service principal is a smart and secure idea. For example, you won't have to keep an eye out for secrets that are getting expired and it's a lot more secure. Even if your service principal uses a certificate instead of a client secret. This especially works well if you have business solutions in a Azure Logic App that needs to keep running 24/7 without having the scenario where the client secret expires and you only know it in the next morning if you don't monitor for it.
 
 You also do not need to setup a seperate Azure Key Vault. Which saves administrative overhead. 
 
