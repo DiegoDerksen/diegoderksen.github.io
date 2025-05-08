@@ -9,7 +9,7 @@ tags:
 
 Microsoft has recently released a "helpful" (sigh) new feature (Roadmap ID 490064) that gives a notification to a end user if they want to combine their work and personal documents. Before we enforce the blocking policy, it's important to measure the potential impact. If we find that only a small number of users are affected, the implementation will be easier to manage and communicate. Otherwise if there are more users using a personal Onedrive account you can broaden your communication.
 
-What is my goal?  
+**What is my goal?**  
 Check how many users currently have personal OneDrive accounts configured on their device, using a PowerShell script deployed via Intune as a remediation script.
 
 
