@@ -7,7 +7,7 @@ tags:
   - Intune
 ---
 
-Microsoft has recently introduced a helpful (sigh) new feature (Roadmap ID 490064) that notifies end users when they attempt to combine work and personal documents. Before enforcing the blocking policy, it's important to assess the potential impact. If we find that only a small number of users are affected, implementation will be easier to manage and communicate. However, if a significant number of users are using personal OneDrive accounts, you can broaden your communication.
+Microsoft has recently introduced a helpful (sigh) new feature (Roadmap ID 490064) that notifies end users if they want to synchronize their personal documents on a managed device. Before enforcing the blocking policy, it's important to assess the potential impact. If we find that only a small number of users are affected, implementation will be easier to manage and communicate. However, if a significant number of users are using personal OneDrive accounts, you can broaden your communication.
 
 
 **What is my goal?**  
