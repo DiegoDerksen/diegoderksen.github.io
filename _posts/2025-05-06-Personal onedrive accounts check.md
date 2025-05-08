@@ -9,7 +9,7 @@ tags:
 
 Microsoft has recently released a "helpful" (sigh) new feature (Roadmap ID 490064) that allows us to detect whether a personal OneDrive account is being used. Before we enforce the blocking policy, it's important to measure the potential impact. If we find that only a small number of users are affected, the implementation will be easier to manage and communicate. Otherwise if there are more users using a personal Onedrive account you can broaden your communication.
 
-What is my goal?
+What is my goal?  
 Check how many users currently have personal OneDrive accounts configured on their device, using a PowerShell script deployed via Intune as a remediation script.
 
 
@@ -67,7 +67,7 @@ if ($personalFound) {
 
 Save this script with a .ps1 extension. You can then upload and deploy it in Intune as a remediation script.
 
-**Intune Settings**
+**Intune Settings**  
 When uploading the script in Intune, use the following settings:
 
 Run this script using the logged-on credentials: Yes
@@ -78,5 +78,5 @@ Run script in 64-bit PowerShell: Yes
 
 The script exits with code 1 if any personal accounts are found, which allows for easy detection and reporting across your fleet. The output includes which non-corporate domains were discovered.
 
-**Next Steps**
+**Next Steps**  
 Once we gather enough data on current usage, we can make an informed decision on when and how to enforce the DisablePersonalSync (GPO Name) or as it's called in Intune: "Prevent users from syncing personal OneDrive accounts". The goal is to improve security while minimizing disruption to users.
