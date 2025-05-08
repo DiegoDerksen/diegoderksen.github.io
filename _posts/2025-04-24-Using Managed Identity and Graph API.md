@@ -1,6 +1,6 @@
 ---
 title: "Using Managed Identity and Graph API"
-last_modified_at: 20250-04-24T13:33:00+02:00
+last_modified_at: 2025-04-24T13:33:00+02:00
 categories:
   - Blog
 tags:
