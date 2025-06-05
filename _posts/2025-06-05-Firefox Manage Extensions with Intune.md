@@ -41,7 +41,7 @@ Click on "Select an .adml file" and select the language folder you want (In my c
 7. Click on "Add" to add a OMA-URI
 8. Name -> Firefox ADMX ingest
 9. OMA-URI -> ./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Firefox/Policy/FirefoxAdmx
-10.
+10.  
 ```json
 <?xml version="1.0" encoding="utf-8"?>
 <policyDefinitions revision="6.11" schemaVersion="1.0">
@@ -4595,7 +4595,7 @@ Click on "Select an .adml file" and select the language folder you want (In my c
     </policy>
   </policies>
 </policyDefinitions>
-```
+```  
 11. Click on Save 
 12. Click on "Add" again
 13. Name -> Firefox Extensions
